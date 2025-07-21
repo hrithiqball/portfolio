@@ -99,7 +99,6 @@ export const PixelImage = ({
             isVisible ? 'opacity-100' : 'opacity-0'
           )}
           style={{
-            clipPath: piece.clipPath,
             transitionDelay: `${piece.delay}ms`,
             transitionDuration: `${pixelFadeInDuration}ms`
           }}
