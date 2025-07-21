@@ -1,11 +1,10 @@
 'use client'
 
 import { Project } from '@/data/resume'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
-import { Badge } from './ui/badge'
 import Image from 'next/image'
 import Link from 'next/link'
-import { ReactNode } from 'react'
+import { Badge } from './ui/badge'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
 
 type ProjectCardProps = {
   project: Project
