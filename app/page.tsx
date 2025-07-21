@@ -43,7 +43,7 @@ export default function Home() {
 
             <section id='about' className='relative z-10'>
               <Terminal className='mx-auto'>
-                <AnimatedSpan delay={1000} className='text-green-400'>
+                <AnimatedSpan delay={1000} className='text-green-600'>
                   {'>'} harith@debian-btw:~$ whoami
                 </AnimatedSpan>
                 <AnimatedSpan delay={1250}>
