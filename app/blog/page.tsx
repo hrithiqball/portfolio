@@ -1,3 +1,4 @@
+import { HyperText } from '@/components/magicui/hyper-text'
 import { PostListener } from '@/components/post-listener'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { parseFileName } from '@/lib/utils'
@@ -10,7 +11,7 @@ export default async function Blog() {
 
   return (
     <div className='space-y-4 py-8'>
-      <h1 className='font-bold text-xl'>Blog</h1>
+      <HyperText className='text-xl'>Blog</HyperText>
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
         {blogList.map((post) => (
           <Card
