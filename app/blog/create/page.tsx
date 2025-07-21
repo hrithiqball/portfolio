@@ -32,7 +32,7 @@ export default function Page() {
 
   return (
     <div className='items-center h-[50vh] flex justify-center'>
-      <Card className='p-4 space-y-4 bg-stone-50'>
+      <Card className='p-4 space-y-4 bg-stone-50 dark:bg-card'>
         <CardHeader>
           <CardTitle>Upload New Blog</CardTitle>
         </CardHeader>

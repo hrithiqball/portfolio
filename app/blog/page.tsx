@@ -16,7 +16,7 @@ export default async function Blog() {
         {blogList.map((post) => (
           <Card
             key={post?.filename}
-            className='p-4 bg-stone-100 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105'
+            className='p-4 bg-stone-100 dark:bg-card cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105'
           >
             <CardHeader className='space-y-3'>
               <CardTitle className='flex items-center justify-between'>
