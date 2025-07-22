@@ -117,7 +117,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto sm:pb-24 px-6`}
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans antialiased container mx-auto pt-4 pb-24 px-6`}
       >
         <ThemeProvider
           attribute='class'

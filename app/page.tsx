@@ -224,7 +224,7 @@ export default function Home() {
                 <BlurFade delay={BLUR_FADE_DELAY * 11}>
                   <h2 className='text-xl font-bold'>Projects</h2>
                 </BlurFade>
-                <div className='grid grid-cols-2 gap-4 items-stretch'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch'>
                   {DATA.projects.map((project, id) => (
                     <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
                       <ProjectCard project={project} />

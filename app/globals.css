@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@plugin "@tailwindcss/typography";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -130,6 +132,27 @@
   --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.553 0.013 58.071);
+}
+
+.prose table {
+  border-collapse: collapse;
+  margin: 1em 0;
+}
+
+.prose th,
+.prose td {
+  border: 1px solid var(--color-prettylights-syntax-comment);
+  padding: 0.5em 1em;
+  text-align: left;
+}
+
+.prose th {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+}
+
+.prose thead th {
+  border-bottom: 2px solid var(--color-prettylights-syntax-comment);
 }
 
 @layer base {

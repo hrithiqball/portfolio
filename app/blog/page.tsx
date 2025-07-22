@@ -12,18 +12,15 @@ export default async function Blog() {
   const blogList: Blog[] = data?.posts || []
 
   return (
-    <div className='space-y-4 py-8'>
-      <HyperText className='text-xl'>Blog</HyperText>
-      <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+    <div className='flex flex-col items-center space-y-4'>
+      <HyperText>Blog</HyperText>
+      <div className='flex flex-col space-y-4'>
         {blogList.map((post) => (
           <Link href={`/blog/${encodeURIComponent(post?.id)}`} key={post?.id}>
             <Card className='p-4 bg-stone-100 dark:bg-card cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105'>
               <CardHeader className='space-y-3'>
                 <CardTitle className='flex items-center justify-between'>
-                  <span>
-                    {post?.title}
-                    {/* {post.category} */}
-                  </span>
+                  <span>{post?.title}</span>
                   <span className='text-xs text-muted-foreground'>
                     {post?.created_at &&
                       new Intl.DateTimeFormat('en-GB', {
