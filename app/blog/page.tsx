@@ -14,7 +14,7 @@ export default async function Blog() {
   return (
     <div className='flex flex-col items-center space-y-4'>
       <HyperText>Blog</HyperText>
-      <div className='flex flex-col space-y-4'>
+      <div className='flex flex-col space-y-4 w-full'>
         {blogList.map((post) => (
           <Link href={`/blog/${encodeURIComponent(post?.id)}`} key={post?.id}>
             <Card className='p-4 bg-stone-100 dark:bg-card cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105'>
