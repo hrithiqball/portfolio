@@ -12,7 +12,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className='p-4 space-y-2 bg-stone-100 flex flex-col h-full'>
+    <Card className='p-4 space-y-2 bg-stone-50 dark:bg-card flex flex-col h-full'>
       <CardHeader className='space-y-2'>
         <CardTitle className='flex items-center gap-2'>
           {project.image !== '' ? (

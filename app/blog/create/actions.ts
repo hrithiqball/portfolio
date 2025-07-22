@@ -19,6 +19,10 @@ export async function createPostAction(
   const uploadFormData = new FormData()
   uploadFormData.append('file', file)
   uploadFormData.append('token', formData.get('token') as string)
+  uploadFormData.append('title', formData.get('title') as string)
+  uploadFormData.append('description', formData.get('description') as string)
+  uploadFormData.append('category', formData.get('category') as string)
+  uploadFormData.append('tags', formData.get('tags') as string)
 
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/upload`, {

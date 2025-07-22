@@ -1,41 +1,46 @@
 import { HyperText } from '@/components/magicui/hyper-text'
 import { PostListener } from '@/components/post-listener'
-import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { parseFileName } from '@/lib/utils'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import Link from 'next/link'
 
 export default async function Blog() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/list`, { method: 'GET' })
   const data = await res.json()
-  const fileList: string[] = data.files || []
-  const blogList = fileList.map(parseFileName).filter(Boolean)
+  const blogList: Blog[] = data?.posts || []
 
   return (
     <div className='space-y-4 py-8'>
       <HyperText className='text-xl'>Blog</HyperText>
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
         {blogList.map((post) => (
-          <Card
-            key={post?.filename}
-            className='p-4 bg-stone-100 dark:bg-card cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105'
-          >
-            <CardHeader className='space-y-3'>
-              <CardTitle className='flex items-center justify-between'>
-                <span>{post?.title}</span>
-                <span className='text-xs text-muted-foreground'>
-                  {post?.date &&
-                    new Intl.DateTimeFormat('en-GB', {
-                      day: 'numeric',
-                      month: 'short'
-                    }).format(new Date(post.date))}
-                </span>
-              </CardTitle>
-              <CardDescription>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus ipsum atque
-                voluptatum officiis eum illum asperiores ut, ipsa eligendi quis veritatis officia.
-                Quos iure optio et. Vitae harum libero incidunt.
-              </CardDescription>
-            </CardHeader>
-          </Card>
+          <Link href={`/blog/${encodeURIComponent(post?.id)}`} key={post?.id}>
+            <Card className='p-4 bg-stone-100 dark:bg-card cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105'>
+              <CardHeader className='space-y-3'>
+                <CardTitle className='flex items-center justify-between'>
+                  <span>
+                    {post?.title}
+                    {/* {post.category} */}
+                  </span>
+                  <span className='text-xs text-muted-foreground'>
+                    {post?.created_at &&
+                      new Intl.DateTimeFormat('en-GB', {
+                        day: 'numeric',
+                        month: 'short'
+                      }).format(new Date(post.created_at))}
+                  </span>
+                </CardTitle>
+                <div className='flex gap-1'>
+                  {post.tags.split(',').map((tag) => (
+                    <Badge variant='outline' key={tag}>
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+                <CardDescription className='line-clamp-2'>{post.description}</CardDescription>
+              </CardHeader>
+            </Card>
+          </Link>
         ))}
       </div>
       <PostListener />

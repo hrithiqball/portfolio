@@ -31,7 +31,7 @@ export default function Page() {
   }, [state, router])
 
   return (
-    <div className='items-center h-[50vh] flex justify-center'>
+    <div className='items-center flex justify-center py-12'>
       <Card className='p-4 space-y-4 bg-stone-50 dark:bg-card'>
         <CardHeader>
           <CardTitle>Upload New Blog</CardTitle>
@@ -40,6 +40,14 @@ export default function Page() {
           <form ref={formRef} id='blog-form' action={formAction} className='space-y-2'>
             <Label htmlFor='token'>Token</Label>
             <Input name='token' placeholder='ragebaited' />
+            <Label htmlFor='title'>Title</Label>
+            <Input name='title' placeholder='My New Blog Post' required />
+            <Label htmlFor='description'>Description</Label>
+            <Input name='description' placeholder='A brief description of the post' required />
+            <Label htmlFor='category'>Category</Label>
+            <Input name='category' placeholder='e.g., Technology, Lifestyle' required />
+            <Label htmlFor='tags'>Tags</Label>
+            <Input name='tags' placeholder='Comma-separated tags' required />
             <Label htmlFor='file'>File</Label>
             <Input name='file' type='file' required />
           </form>
