@@ -1,8 +1,10 @@
 import { HyperText } from '@/components/magicui/hyper-text'
 import { PostListener } from '@/components/post-listener'
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
+
+export const dynamic = 'force-dynamic'
 
 export default async function Blog() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/list`, { method: 'GET' })
