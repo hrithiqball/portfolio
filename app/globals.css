@@ -135,24 +135,28 @@
 }
 
 .prose table {
-  border-collapse: collapse;
-  margin: 1em 0;
+  @apply border-collapse my-4;
 }
 
 .prose th,
 .prose td {
-  border: 1px solid var(--color-prettylights-syntax-comment);
-  padding: 0.5em 1em;
-  text-align: left;
+  @apply border-[var(--color-prettylights-syntax-comment)] px-4 py-2 text-left;
 }
 
 .prose th {
-  background-color: rgba(255, 255, 255, 0.1);
-  font-weight: bold;
+  @apply bg-muted font-bold;
 }
 
 .prose thead th {
-  border-bottom: 2px solid var(--color-prettylights-syntax-comment);
+  @apply border-[var(--color-prettylights-syntax-comment)];
+}
+
+.prose pre {
+  @apply bg-stone-800;
+}
+
+.prose a {
+  @apply text-blue-500 underline-offset-4;
 }
 
 @layer base {

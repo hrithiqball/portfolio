@@ -12,7 +12,7 @@ export default async function Blog() {
   const blogList: Blog[] = data?.posts || []
 
   return (
-    <div className='flex flex-col items-center space-y-4 container'>
+    <div className='flex flex-col items-center space-y-4 w-full'>
       <HyperText>Blog</HyperText>
       <div className='flex flex-col space-y-4 w-full'>
         {blogList.map((post) => (
