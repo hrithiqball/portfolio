@@ -2,7 +2,11 @@
 
 import Giscus from '@giscus/react'
 
-export function CommentSection({ slug }: { slug: string }) {
+type CommentSectionProps = {
+  slug: string
+}
+
+export function CommentSection({ slug }: CommentSectionProps) {
   return (
     <Giscus
       id='comments'

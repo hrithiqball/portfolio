@@ -1,3 +1,4 @@
+import { Skills } from '@/components/skills'
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
@@ -54,49 +55,11 @@ export default async function Image() {
               margin: '0 0 30px 0'
             }}
           >
-            Full Stack Developer
+            Full Stack Developer{' '}
+            <span role='img' aria-label='star'>
+              ⭐
+            </span>
           </p>
-          <div
-            style={{
-              display: 'flex',
-              gap: '15px',
-              flexWrap: 'wrap'
-            }}
-          >
-            <div
-              style={{
-                padding: '8px 16px',
-                backgroundColor: '#3b82f6',
-                borderRadius: '6px',
-                color: 'white',
-                fontSize: '18px'
-              }}
-            >
-              React
-            </div>
-            <div
-              style={{
-                padding: '8px 16px',
-                backgroundColor: '#10b981',
-                borderRadius: '6px',
-                color: 'white',
-                fontSize: '18px'
-              }}
-            >
-              Node.js
-            </div>
-            <div
-              style={{
-                padding: '8px 16px',
-                backgroundColor: '#8b5cf6',
-                borderRadius: '6px',
-                color: 'white',
-                fontSize: '18px'
-              }}
-            >
-              TypeScript
-            </div>
-          </div>
         </div>
 
         <div
@@ -112,14 +75,16 @@ export default async function Image() {
             marginLeft: '40px'
           }}
         >
-          <div
+          <img
+            src='/ghibli.png'
             style={{
-              fontSize: '120px',
-              color: 'white'
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              borderRadius: '50%'
             }}
-          >
-            👨‍💻
-          </div>
+            alt='Profile'
+          />
         </div>
       </div>
     ),

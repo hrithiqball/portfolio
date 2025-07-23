@@ -1,11 +1,11 @@
+import Navbar from '@/components/navbar'
+import { ThemeProvider } from '@/components/theme-provider'
+import { Toaster } from '@/components/ui/sonner'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { PropsWithChildren } from 'react'
 import './globals.css'
-import { ThemeProvider } from '@/components/theme-provider'
-import Navbar from '@/components/navbar'
-import { TooltipProvider } from '@/components/ui/tooltip'
-import { ReactNode } from 'react'
-import { Toaster } from '@/components/ui/sonner'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -75,11 +75,7 @@ export const metadata: Metadata = {
   }
 }
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: ReactNode
-}>) {
+export default function RootLayout({ children }: PropsWithChildren) {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Person',

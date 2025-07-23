@@ -1,12 +1,12 @@
-import { HyperText } from '@/components/magicui/hyper-text'
 import { CmdbListener } from '@/components/cmdb-listener'
+import { HyperText } from '@/components/magicui/hyper-text'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
-export default async function Blog() {
+export default async function BlogPage() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/list`, { method: 'GET' })
   const data = await res.json()
   const blogList: Blog[] = data?.posts || []
@@ -42,7 +42,7 @@ export default async function Blog() {
           </Link>
         ))}
       </div>
-      <CmdbListener />
+      <CmdbListener route='/blog/create' />
     </div>
   )
 }

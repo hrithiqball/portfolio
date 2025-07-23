@@ -4,7 +4,11 @@ import { Button } from '@/components/ui/button'
 import { Check, Link } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
-export function CopyUrl({ url }: { url: string }) {
+type CopyUrlProps = {
+  url: string
+}
+
+export function CopyUrl({ url }: CopyUrlProps) {
   const [hasCopied, setHasCopied] = useState(false)
 
   const handleCopy = () => {

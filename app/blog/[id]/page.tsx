@@ -1,19 +1,25 @@
+import { CommentSection } from '@/app/blog/[id]/comment-section'
+import { CmdbListener } from '@/components/cmdb-listener'
+import { CmdyListener } from '@/components/cmdy-listener'
 import { CopyButton } from '@/components/copy-button'
+import { CopyUrl } from '@/components/copy-url'
 import { Icons } from '@/components/icons'
 import { HyperText } from '@/components/magicui/hyper-text'
+import { MarkdownRenderer } from '@/components/markdown-renderer'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
-import ReactMarkdown from 'react-markdown'
+import Markdown from 'react-markdown'
 import { Prism } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
-import { CommentSection } from './comment-section'
-import { CopyUrl } from './copy-url'
-import { CmdyListener } from '@/components/cmdy-listener'
 
-export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
+type BlogPostProps = {
+  params: Promise<{ id: string }>
+}
+
+export default async function BlogPostPage({ params }: BlogPostProps) {
   const { id } = await params
   const res = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/post/${encodeURIComponent(id)}`, {
     method: 'GET'
@@ -28,6 +34,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
   return (
     <div className='flex justify-center'>
       <CmdyListener route={`/blog/${post.id}/delete`} />
+      <CmdbListener route={`/blog/${post.id}/edit`} />
       <div className='prose dark:prose-invert w-full'>
         <HyperText>{post.title}</HyperText>
         <span>
@@ -37,47 +44,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
           - harith iqbal
         </span>
         <Separator className='my-4' />
-        <ReactMarkdown
-          remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeRaw]}
-          components={{
-            code({ node, inline, className, children, ...props }: any) {
-              const match = /language-(\w+)/.exec(className || '')
-              const language = match ? match[1] : ''
-
-              return !inline && language ? (
-                <div className='relative'>
-                  <div className='absolute top-0 left-0 bg-gray-600 text-gray-200 px-2 py-1 text-xs rounded-tl-md rounded-br-md font-mono'>
-                    {language}
-                  </div>
-                  <CopyButton value={String(children).replace(/\n$/, '')} />
-                  <Prism
-                    style={oneDark}
-                    language={language}
-                    PreTag='div'
-                    customStyle={{
-                      borderRadius: '6px',
-                      fontSize: '14px',
-                      paddingTop: '2rem'
-                    }}
-                    {...props}
-                  >
-                    {String(children).replace(/\n$/, '')}
-                  </Prism>
-                </div>
-              ) : (
-                <span
-                  className='bg-stone-100 dark:bg-stone-800 rounded px-1 font-mono font-semibold text-sm'
-                  {...props}
-                >
-                  {children}
-                </span>
-              )
-            }
-          }}
-        >
-          {post.markdown}
-        </ReactMarkdown>
+        <MarkdownRenderer markdown={post.markdown} />
         <div className='flex justify-between'>
           <div className='flex gap-1 items-center'>
             {tags.map((tag) => (

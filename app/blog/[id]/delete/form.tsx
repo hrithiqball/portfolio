@@ -1,7 +1,7 @@
 'use client'
 
-import { useActionState, useEffect } from 'react'
-import { DeleteActionState, deletePostAction } from './actions'
+import { DeleteActionState, deletePostAction } from '@/app/blog/[id]/delete/actions'
+import { Button } from '@/components/ui/button'
 import {
   Card,
   CardContent,
@@ -10,13 +10,17 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
-import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
+import { Label } from '@/components/ui/label'
 import { useRouter } from 'next/navigation'
+import { useActionState, useEffect } from 'react'
 import { toast } from 'sonner'
 
-export function DeleteForm({ id }: { id: string }) {
+type DeleteFormProps = {
+  id: string
+}
+
+export function DeleteForm({ id }: DeleteFormProps) {
   const router = useRouter()
   const [state, formAction, isPending] = useActionState<DeleteActionState, FormData>(
     deletePostAction.bind(null, id),

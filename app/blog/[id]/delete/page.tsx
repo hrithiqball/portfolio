@@ -1,9 +1,13 @@
+import { DeleteForm } from '@/app/blog/[id]/delete/form'
 import { Button } from '@/components/ui/button'
 import { ChevronLeft } from 'lucide-react'
 import Link from 'next/link'
-import { DeleteForm } from './form'
 
-export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+type DeleteBlogPageProps = {
+  params: Promise<{ id: string }>
+}
+
+export default async function DeleteBlogPageprops({ params }: DeleteBlogPageProps) {
   const { id } = await params
 
   return (
