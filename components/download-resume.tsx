@@ -1,9 +1,12 @@
 'use client'
 
 import { Download } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { RainbowButton } from './magicui/rainbow-button'
+import { useTheme } from 'next-themes'
 
 export function DownloadResume() {
+  const { theme } = useTheme()
+
   function handleDownloadResume() {
     const link = document.createElement('a')
     link.href = '/cv.pdf'
@@ -14,9 +17,11 @@ export function DownloadResume() {
   }
 
   return (
-    <Button onClick={handleDownloadResume}>
-      <Download />
-      Download Resume
-    </Button>
+    <RainbowButton onClick={handleDownloadResume}>
+      <>
+        <Download />
+        Download Resume
+      </>
+    </RainbowButton>
   )
 }
