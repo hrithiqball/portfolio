@@ -30,7 +30,7 @@ export default function Home() {
       </div>
 
       <div className='flex flex-col items-center justify-center min-h-screen'>
-        <div className='relative overflow-hidden w-full max-w-6xl mx-auto pb-12'>
+        <div className='relative overflow-hidden w-full pb-12'>
           <ParticleBackground />
           <div className='space-y-8'>
             <header className='relative z-10 text-center'>

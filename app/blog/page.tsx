@@ -1,5 +1,5 @@
 import { HyperText } from '@/components/magicui/hyper-text'
-import { PostListener } from '@/components/post-listener'
+import { CmdbListener } from '@/components/cmdb-listener'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Link from 'next/link'
@@ -12,7 +12,7 @@ export default async function Blog() {
   const blogList: Blog[] = data?.posts || []
 
   return (
-    <div className='flex flex-col items-center space-y-4'>
+    <div className='flex flex-col items-center space-y-4 container'>
       <HyperText>Blog</HyperText>
       <div className='flex flex-col space-y-4 w-full'>
         {blogList.map((post) => (
@@ -42,7 +42,7 @@ export default async function Blog() {
           </Link>
         ))}
       </div>
-      <PostListener />
+      <CmdbListener />
     </div>
   )
 }

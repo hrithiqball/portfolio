@@ -25,7 +25,7 @@ export async function createPostAction(
   uploadFormData.append('tags', formData.get('tags') as string)
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/upload`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/upload-md`, {
       method: 'POST',
       body: uploadFormData
     })

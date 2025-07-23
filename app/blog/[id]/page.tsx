@@ -9,9 +9,9 @@ import { Prism } from 'react-syntax-highlighter'
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
-import { CopyUrl } from './copy-url'
-import Giscus from '@giscus/react'
 import { CommentSection } from './comment-section'
+import { CopyUrl } from './copy-url'
+import { CmdyListener } from '@/components/cmdy-listener'
 
 export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
@@ -27,7 +27,8 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
 
   return (
     <div className='flex justify-center'>
-      <div className='prose dark:prose-invert'>
+      <CmdyListener route={`/blog/${post.id}/delete`} />
+      <div className='prose dark:prose-invert w-full'>
         <HyperText>{post.title}</HyperText>
         <span>
           {new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' })

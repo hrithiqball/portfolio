@@ -1,16 +1,20 @@
 'use client'
 
-import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 
-export function PostListener() {
+type CmdyListenerProps = {
+  route: string
+}
+
+export function CmdyListener({ route }: CmdyListenerProps) {
   const router = useRouter()
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.ctrlKey && event.key === 'b') {
+      if (event.ctrlKey && event.key === 'y') {
         event.preventDefault()
-        router.push('/blog/create')
+        router.push(route)
       }
     }
 
