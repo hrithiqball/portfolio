@@ -54,10 +54,14 @@
 
   @keyframes aurora {
     from {
-      background-position: 50% 50%, 50% 50%;
+      background-position:
+        50% 50%,
+        50% 50%;
     }
     to {
-      background-position: 350% 50%, 350% 50%;
+      background-position:
+        350% 50%,
+        350% 50%;
     }
   }
 
@@ -155,7 +159,7 @@
 }
 
 .prose table {
-  @apply border-collapse my-4;
+  @apply my-4 border-collapse;
 }
 
 .prose th,

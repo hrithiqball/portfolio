@@ -1,7 +1,8 @@
 'use client'
 
-import { useBlogEditStore } from '@/app/blog/[id]/edit/store'
 import { useEffect } from 'react'
+
+import { useBlogEditStore } from '@/app/blog/[id]/edit/store'
 
 interface StoreInitializerProps {
   markdown: string

@@ -1,8 +1,9 @@
 'use client'
 
-import { Download } from 'lucide-react'
-import { RainbowButton } from './magicui/rainbow-button'
 import { useTheme } from 'next-themes'
+import { Download } from 'lucide-react'
+
+import { RainbowButton } from './magicui/rainbow-button'
 
 export function DownloadResume() {
   const { theme } = useTheme()

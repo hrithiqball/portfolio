@@ -1,8 +1,9 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { Check, Link } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import { Check, Link } from 'lucide-react'
+
+import { Button } from '@/components/ui/button'
 
 type CopyUrlProps = {
   url: string
@@ -27,8 +28,8 @@ export function CopyUrl({ url }: CopyUrlProps) {
   }, [hasCopied])
 
   return (
-    <Button size='icon' variant='ghost' onClick={handleCopy}>
-      {hasCopied ? <Check className='size-3' /> : <Link className='size-3' />}
+    <Button size="icon" variant="ghost" onClick={handleCopy}>
+      {hasCopied ? <Check className="size-3" /> : <Link className="size-3" />}
     </Button>
   )
 }

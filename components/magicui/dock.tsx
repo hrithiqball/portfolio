@@ -1,5 +1,6 @@
 'use client'
 
+import React, { PropsWithChildren, useRef } from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import {
   motion,
@@ -9,7 +10,6 @@ import {
   useSpring,
   useTransform
 } from 'motion/react'
-import React, { PropsWithChildren, useRef } from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -46,7 +46,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     const mouseX = useMotionValue(Infinity)
 
     const renderChildren = () => {
-      return React.Children.map(children, (child) => {
+      return React.Children.map(children, child => {
         if (React.isValidElement<DockIconProps>(child) && child.type === DockIcon) {
           return React.cloneElement(child, {
             ...child.props,
@@ -63,7 +63,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     return (
       <motion.div
         ref={ref}
-        onMouseMove={(e) => mouseX.set(e.pageX)}
+        onMouseMove={e => mouseX.set(e.pageX)}
         onMouseLeave={() => mouseX.set(Infinity)}
         {...props}
         className={cn(dockVariants({ className }), {

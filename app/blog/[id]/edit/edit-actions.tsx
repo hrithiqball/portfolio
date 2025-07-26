@@ -18,7 +18,7 @@ export function EditActions() {
     <>
       <Dialog>
         <DialogTrigger asChild>
-          <RainbowButton className='absolute bottom-0 right-0 z-[100] mr-4 mb-4'>
+          <RainbowButton className="absolute bottom-0 right-0 z-[100] mr-4 mb-4">
             Publish
           </RainbowButton>
         </DialogTrigger>
@@ -30,7 +30,7 @@ export function EditActions() {
           other stuff input
           <DialogFooter>
             <DialogClose asChild>
-              <Button variant='outline'>Cancel</Button>
+              <Button variant="outline">Cancel</Button>
             </DialogClose>
             <RainbowButton>Update</RainbowButton>
           </DialogFooter>

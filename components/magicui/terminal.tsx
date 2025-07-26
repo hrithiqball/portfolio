@@ -1,8 +1,9 @@
 'use client'
 
-import { cn } from '@/lib/utils'
-import { motion, MotionProps } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
+import { motion, MotionProps } from 'motion/react'
+
+import { cn } from '@/lib/utils'
 
 interface AnimatedSpanProps extends MotionProps {
   children: React.ReactNode
@@ -99,15 +100,15 @@ export const Terminal = ({ children, className }: TerminalProps) => {
         className
       )}
     >
-      <div className='flex flex-col gap-y-2 border-b border-border p-4'>
-        <div className='flex flex-row gap-x-2'>
-          <div className='h-2 w-2 rounded-full bg-red-500'></div>
-          <div className='h-2 w-2 rounded-full bg-yellow-500'></div>
-          <div className='h-2 w-2 rounded-full bg-green-500'></div>
+      <div className="flex flex-col gap-y-2 border-b border-border p-4">
+        <div className="flex flex-row gap-x-2">
+          <div className="h-2 w-2 rounded-full bg-red-500"></div>
+          <div className="h-2 w-2 rounded-full bg-yellow-500"></div>
+          <div className="h-2 w-2 rounded-full bg-green-500"></div>
         </div>
       </div>
-      <pre className='p-4'>
-        <code className='grid gap-y-1 overflow-auto'>{children}</code>
+      <pre className="p-4">
+        <code className="grid gap-y-1 overflow-auto">{children}</code>
       </pre>
     </div>
   )

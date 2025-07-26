@@ -5,7 +5,7 @@ interface BlogEditStore {
   setMarkdown: (markdown: string) => void
 }
 
-export const useBlogEditStore = create<BlogEditStore>((set) => ({
+export const useBlogEditStore = create<BlogEditStore>(set => ({
   markdown: '',
-  setMarkdown: (markdown) => set({ markdown })
+  setMarkdown: markdown => set({ markdown })
 }))

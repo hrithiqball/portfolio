@@ -1,7 +1,8 @@
+import Link from 'next/link'
+import { ChevronLeft } from 'lucide-react'
+
 import { DeleteForm } from '@/app/blog/[id]/delete/form'
 import { Button } from '@/components/ui/button'
-import { ChevronLeft } from 'lucide-react'
-import Link from 'next/link'
 
 type DeleteBlogPageProps = {
   params: Promise<{ id: string }>
@@ -11,8 +12,8 @@ export default async function DeleteBlogPageprops({ params }: DeleteBlogPageProp
   const { id } = await params
 
   return (
-    <div className='flex flex-col space-y-4'>
-      <Button className='self-start' variant='outline' size='sm' asChild>
+    <div className="flex flex-col space-y-4">
+      <Button className="self-start" variant="outline" size="sm" asChild>
         <Link href={`/blog/${id}`}>
           <ChevronLeft />
           Back

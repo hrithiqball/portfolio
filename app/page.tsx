@@ -15,8 +15,8 @@ const BLUR_FADE_DELAY = 0.04
 
 export default function HomePage() {
   return (
-    <main className='flex flex-col min-h-[100dvh] space-y-10'>
-      <div className='sr-only'>
+    <main className="flex flex-col min-h-[100dvh] space-y-10">
+      <div className="sr-only">
         <h1>Harith Iqbal - Full Stack Developer Portfolio</h1>
         <p>
           Welcome to Harith Iqbal's portfolio. I am a Full Stack Developer specializing in React,
@@ -30,49 +30,49 @@ export default function HomePage() {
         </p>
       </div>
 
-      <div className='flex flex-col items-center justify-center min-h-screen'>
-        <div className='relative overflow-hidden w-full pb-12'>
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="relative overflow-hidden w-full pb-12">
           <ParticleBackground />
-          <div className='space-y-8'>
-            <header className='relative z-10 text-center'>
+          <div className="space-y-8">
+            <header className="relative z-10 text-center">
               <HyperText>Harith Iqbal</HyperText>
             </header>
 
-            <div className='flex justify-center'>
-              <PixelImage src='/me.png' grayscaleAnimation />
+            <div className="flex justify-center">
+              <PixelImage src="/me.png" grayscaleAnimation />
             </div>
 
-            <section id='about' className='relative z-10'>
-              <Terminal className='mx-auto'>
-                <AnimatedSpan delay={1000} className='text-green-600'>
+            <section id="about" className="relative z-10">
+              <Terminal className="mx-auto">
+                <AnimatedSpan delay={1000} className="text-green-600">
                   {'>'} harith@debian-btw:~$ whoami
                 </AnimatedSpan>
                 <AnimatedSpan delay={1250}>
-                  <div className='flex items-center gap-2'>
-                    <Code className='size-4' />
+                  <div className="flex items-center gap-2">
+                    <Code className="size-4" />
                     <span>Full Stack Developer</span>
                   </div>
                 </AnimatedSpan>
-                <div className='pl-4'>
-                  <AnimatedSpan delay={1750} className='text-blue-500'>
+                <div className="pl-4">
+                  <AnimatedSpan delay={1750} className="text-blue-500">
                     ✔ Planning
                   </AnimatedSpan>
-                  <AnimatedSpan delay={2000} className='text-blue-500'>
+                  <AnimatedSpan delay={2000} className="text-blue-500">
                     ✔ Designing
                   </AnimatedSpan>
-                  <AnimatedSpan delay={2250} className='text-blue-500'>
+                  <AnimatedSpan delay={2250} className="text-blue-500">
                     ✔ Developing
                   </AnimatedSpan>
-                  <AnimatedSpan delay={2500} className='text-blue-500'>
+                  <AnimatedSpan delay={2500} className="text-blue-500">
                     ✔ Testing
                   </AnimatedSpan>
-                  <AnimatedSpan delay={2750} className='text-blue-500'>
+                  <AnimatedSpan delay={2750} className="text-blue-500">
                     ✔ Delivering
                   </AnimatedSpan>
-                  <AnimatedSpan delay={3000} className='text-blue-500'>
+                  <AnimatedSpan delay={3000} className="text-blue-500">
                     ✔ Maintaining
                   </AnimatedSpan>
-                  <AnimatedSpan delay={3250} className='text-blue-500'>
+                  <AnimatedSpan delay={3250} className="text-blue-500">
                     ✔ Enhancing
                   </AnimatedSpan>
                 </div>
@@ -80,10 +80,10 @@ export default function HomePage() {
               </Terminal>
             </section>
 
-            <section id='work'>
-              <div className='flex min-h-0 flex-col gap-y-3'>
+            <section id="work">
+              <div className="flex min-h-0 flex-col gap-y-3">
                 <BlurFade delay={BLUR_FADE_DELAY * 5}>
-                  <h2 className='text-xl font-bold'>Work Experience</h2>
+                  <h2 className="text-xl font-bold">Work Experience</h2>
                 </BlurFade>
                 {DATA.work.map((work, id) => (
                   <BlurFade key={work.company + work.title} delay={BLUR_FADE_DELAY * 6 + id * 0.05}>
@@ -103,10 +103,10 @@ export default function HomePage() {
               </div>
             </section>
 
-            <section id='education'>
-              <div className='flex min-h-0 flex-col gap-y-3'>
+            <section id="education">
+              <div className="flex min-h-0 flex-col gap-y-3">
                 <BlurFade delay={BLUR_FADE_DELAY * 7}>
-                  <h2 className='text-xl font-bold'>Education</h2>
+                  <h2 className="text-xl font-bold">Education</h2>
                 </BlurFade>
                 {DATA.education.map((edu, id) => (
                   <BlurFade key={edu.school + edu.degree} delay={BLUR_FADE_DELAY * 8 + id * 0.05}>
@@ -124,25 +124,25 @@ export default function HomePage() {
               </div>
             </section>
 
-            <section id='skills'>
-              <div className='flex min-h-0 flex-col gap-y-3'>
+            <section id="skills">
+              <div className="flex min-h-0 flex-col gap-y-3">
                 <BlurFade delay={BLUR_FADE_DELAY * 9}>
-                  <h2 className='text-xl font-bold'>Skills</h2>
+                  <h2 className="text-xl font-bold">Skills</h2>
                 </BlurFade>
                 <BlurFade delay={BLUR_FADE_DELAY * 10}>
-                  <div className='flex flex-wrap gap-2'>
+                  <div className="flex flex-wrap gap-2">
                     <Skills />
                   </div>
                 </BlurFade>
               </div>
             </section>
 
-            <section id='projects'>
-              <div className='flex min-h-0 flex-col gap-y-3'>
+            <section id="projects">
+              <div className="flex min-h-0 flex-col gap-y-3">
                 <BlurFade delay={BLUR_FADE_DELAY * 11}>
-                  <h2 className='text-xl font-bold'>Projects</h2>
+                  <h2 className="text-xl font-bold">Projects</h2>
                 </BlurFade>
-                <div className='grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch'>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
                   {DATA.projects.map((project, id) => (
                     <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
                       <ProjectCard project={project} />
@@ -152,7 +152,7 @@ export default function HomePage() {
               </div>
             </section>
 
-            <section id='resume' className='flex justify-center'>
+            <section id="resume" className="flex justify-center">
               <DownloadResume />
             </section>
           </div>

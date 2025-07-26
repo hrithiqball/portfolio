@@ -1,8 +1,9 @@
 'use client'
 
-import { cn } from '@/lib/utils'
-import { AnimatePresence, motion, MotionProps } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
+import { AnimatePresence, motion, MotionProps } from 'motion/react'
+
+import { cn } from '@/lib/utils'
 
 type CharacterSet = string[] | readonly string[]
 
@@ -100,13 +101,13 @@ export function HyperText({
 
       iterationCount.current = progress * maxIterations
 
-      setDisplayText((currentText) =>
+      setDisplayText(currentText =>
         currentText.map((letter, index) =>
           letter === ' '
             ? letter
             : index <= iterationCount.current
-            ? children[index]
-            : characterSet[getRandomInt(characterSet.length)]
+              ? children[index]
+              : characterSet[getRandomInt(characterSet.length)]
         )
       )
 

@@ -1,8 +1,9 @@
+import Link from 'next/link'
+
 import { CmdbListener } from '@/components/cmdb-listener'
 import { HyperText } from '@/components/magicui/hyper-text'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import Link from 'next/link'
 
 export const dynamic = 'force-dynamic'
 
@@ -12,16 +13,16 @@ export default async function BlogPage() {
   const blogList: Blog[] = data?.posts || []
 
   return (
-    <div className='flex flex-col items-center space-y-4 w-full'>
+    <div className="flex flex-col items-center space-y-4 w-full">
       <HyperText>Blog</HyperText>
-      <div className='flex flex-col space-y-4 w-full'>
-        {blogList.map((post) => (
+      <div className="flex flex-col space-y-4 w-full">
+        {blogList.map(post => (
           <Link href={`/blog/${encodeURIComponent(post?.id)}`} key={post?.id}>
-            <Card className='p-4 bg-stone-100 dark:bg-card cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105'>
-              <CardHeader className='space-y-3'>
-                <CardTitle className='flex items-center justify-between'>
+            <Card className="p-4 bg-stone-100 dark:bg-card cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105">
+              <CardHeader className="space-y-3">
+                <CardTitle className="flex items-center justify-between">
                   <span>{post?.title}</span>
-                  <span className='text-xs text-muted-foreground'>
+                  <span className="text-xs text-muted-foreground">
                     {post?.created_at &&
                       new Intl.DateTimeFormat('en-GB', {
                         day: 'numeric',
@@ -29,20 +30,20 @@ export default async function BlogPage() {
                       }).format(new Date(post.created_at))}
                   </span>
                 </CardTitle>
-                <div className='flex gap-1'>
-                  {post.tags.split(',').map((tag) => (
-                    <Badge variant='outline' key={tag}>
+                <div className="flex gap-1">
+                  {post.tags.split(',').map(tag => (
+                    <Badge variant="outline" key={tag}>
                       {tag}
                     </Badge>
                   ))}
                 </div>
-                <CardDescription className='line-clamp-2'>{post.description}</CardDescription>
+                <CardDescription className="line-clamp-2">{post.description}</CardDescription>
               </CardHeader>
             </Card>
           </Link>
         ))}
       </div>
-      <CmdbListener route='/blog/create' />
+      <CmdbListener route="/blog/create" />
     </div>
   )
 }

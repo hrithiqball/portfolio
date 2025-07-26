@@ -16,11 +16,11 @@ export default async function EditBlogPage({ params }: EditBlogPageProps) {
   const post: Blog = data?.post
 
   return (
-    <div className='w-full'>
+    <div className="w-full">
       <BodyScrollLock />
-      <div className='fixed inset-0 p-6 pt-4 pb-24'>
+      <div className="fixed inset-0 p-6 pt-4 pb-24">
         <StoreInitializer markdown={post?.markdown || ''} />
-        <ResizablePanelGroup direction='horizontal' className='w-full h-full rounded-lg border'>
+        <ResizablePanelGroup direction="horizontal" className="w-full h-full rounded-lg border">
           <ResizablePanel defaultSize={50}>
             <Editor />
           </ResizablePanel>

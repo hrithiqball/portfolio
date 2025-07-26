@@ -55,7 +55,7 @@ export default async function Image() {
             }}
           >
             Full Stack Developer{' '}
-            <span role='img' aria-label='star'>
+            <span role="img" aria-label="star">
               ⭐
             </span>
           </p>
@@ -89,14 +89,14 @@ export default async function Image() {
           }}
         >
           <img
-            src='https://hrithiqball.pixcel.org/ghibli.png'
+            src="https://hrithiqball.pixcel.org/ghibli.png"
             style={{
               width: '100%',
               height: '100%',
               objectFit: 'cover',
               borderRadius: '50%'
             }}
-            alt='Profile'
+            alt="Profile"
           />
         </div>
       </div>

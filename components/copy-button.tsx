@@ -1,11 +1,11 @@
 'use client'
 
+import { ComponentProps, useEffect, useState } from 'react'
 import { CheckIcon, ClipboardIcon } from 'lucide-react'
 
-import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { ComponentProps, useEffect, useState } from 'react'
+import { cn } from '@/lib/utils'
 
 export function copyToClipboard(value: string) {
   navigator.clipboard.writeText(value)
@@ -36,8 +36,8 @@ export function CopyButton({
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
-          data-slot='copy-button'
-          size='icon'
+          data-slot="copy-button"
+          size="icon"
           variant={variant}
           className={cn(
             'bg-code absolute top-3 right-2 z-10 size-7 hover:opacity-100 focus-visible:opacity-100',
@@ -49,7 +49,7 @@ export function CopyButton({
           }}
           {...props}
         >
-          <span className='sr-only'>Copy</span>
+          <span className="sr-only">Copy</span>
           {hasCopied ? <CheckIcon /> : <ClipboardIcon />}
         </Button>
       </TooltipTrigger>

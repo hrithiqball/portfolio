@@ -1,6 +1,7 @@
-import { Icons } from '@/components/icons'
-import { HomeIcon, NotebookIcon, ProjectorIcon, Truck } from 'lucide-react'
 import { ReactNode } from 'react'
+import { HomeIcon, NotebookIcon, ProjectorIcon, Truck } from 'lucide-react'
+
+import { Icons } from '@/components/icons'
 
 export type Project = {
   title: string
@@ -124,12 +125,12 @@ export const DATA = {
         {
           type: 'Github Repository',
           href: 'https://github.com/hrithiqball/e-jobpack',
-          icon: <Icons.github className='size-3' />
+          icon: <Icons.github className="size-3" />
         },
         {
           type: 'Live Demo',
           href: 'https://e-jobpack-app.vercel.app/',
-          icon: <Icons.globe className='size-3' />
+          icon: <Icons.globe className="size-3" />
         }
       ]
     },
@@ -156,12 +157,12 @@ export const DATA = {
         {
           type: 'Github Repository',
           href: 'https://github.com/hrithiqball/ev-reservation',
-          icon: <Icons.github className='size-3' />
+          icon: <Icons.github className="size-3" />
         },
         {
           type: 'Live Demo',
           href: 'https://ev-reservation.pixcel.org/',
-          icon: <Icons.globe className='size-3' />
+          icon: <Icons.globe className="size-3" />
         }
       ]
     },
@@ -186,7 +187,7 @@ export const DATA = {
     {
       title: 'Transtrack System',
       image: '',
-      icon: <Truck className='text-teal-500' />,
+      icon: <Truck className="text-teal-500" />,
       href: 'https://github.com/hrithiqball/transtrack-system',
       dates: 'June 2024 - Oct 2024',
       active: true,
@@ -197,7 +198,7 @@ export const DATA = {
         {
           type: 'Github Repository',
           href: 'https://github.com/hrithiqball/transtrack-system',
-          icon: <Icons.github className='size-3' />
+          icon: <Icons.github className="size-3" />
         }
       ]
     },
@@ -223,7 +224,7 @@ export const DATA = {
         {
           type: 'Github Repository',
           href: 'https://github.com/hrithiqball/interntrack',
-          icon: <Icons.github className='size-3' />
+          icon: <Icons.github className="size-3" />
         }
       ]
     }

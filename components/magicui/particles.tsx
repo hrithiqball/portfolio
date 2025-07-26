@@ -1,7 +1,8 @@
 'use client'
 
-import { cn } from '@/lib/utils'
 import React, { ComponentPropsWithoutRef, useEffect, useRef, useState } from 'react'
+
+import { cn } from '@/lib/utils'
 
 interface MousePosition {
   x: number
@@ -47,7 +48,7 @@ function hexToRgb(hex: string): number[] {
   if (hex.length === 3) {
     hex = hex
       .split('')
-      .map((char) => char + char)
+      .map(char => char + char)
       .join('')
   }
 
@@ -289,10 +290,10 @@ export const Particles: React.FC<ParticlesProps> = ({
     <div
       className={cn('pointer-events-none', className)}
       ref={canvasContainerRef}
-      aria-hidden='true'
+      aria-hidden="true"
       {...props}
     >
-      <canvas ref={canvasRef} className='size-full' />
+      <canvas ref={canvasRef} className="size-full" />
     </div>
   )
 }

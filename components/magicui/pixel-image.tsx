@@ -1,7 +1,8 @@
 'use client'
 
-import { cn } from '@/lib/utils'
 import { useEffect, useMemo, useState } from 'react'
+
+import { cn } from '@/lib/utils'
 
 type Grid = {
   rows: number
@@ -90,7 +91,7 @@ export const PixelImage = ({
   }, [rows, cols, maxAnimationDelay])
 
   return (
-    <div className='relative h-72 w-72 select-none md:h-96 md:w-96'>
+    <div className="relative h-72 w-72 select-none md:h-96 md:w-96">
       {pieces.map((piece, index) => (
         <div
           key={index}

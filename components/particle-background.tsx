@@ -1,8 +1,9 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { Particles } from './magicui/particles'
 import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
+
+import { Particles } from './magicui/particles'
 
 export function ParticleBackground() {
   const { theme } = useTheme()
@@ -13,6 +14,6 @@ export function ParticleBackground() {
   }, [theme])
 
   return (
-    <Particles className='absolute inset-0 z-0' quantity={100} ease={80} color={color} refresh />
+    <Particles className="absolute inset-0 z-0" quantity={100} ease={80} color={color} refresh />
   )
 }
