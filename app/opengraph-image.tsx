@@ -1,4 +1,3 @@
-import { Skills } from '@/components/skills'
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
@@ -52,7 +51,7 @@ export default async function Image() {
             style={{
               fontSize: '36px',
               color: '#94a3b8',
-              margin: '0 0 30px 0'
+              margin: '0 0 20px 0'
             }}
           >
             Full Stack Developer{' '}
@@ -60,6 +59,20 @@ export default async function Image() {
               ⭐
             </span>
           </p>
+          <div
+            style={{
+              fontSize: '24px',
+              color: '#64748b',
+              display: 'flex',
+              gap: '20px'
+            }}
+          >
+            <span>React</span>
+            <span>•</span>
+            <span>Node.js</span>
+            <span>•</span>
+            <span>TypeScript</span>
+          </div>
         </div>
 
         <div
@@ -76,7 +89,7 @@ export default async function Image() {
           }}
         >
           <img
-            src='/ghibli.png'
+            src='https://hrithiqball.pixcel.org/ghibli.png'
             style={{
               width: '100%',
               height: '100%',

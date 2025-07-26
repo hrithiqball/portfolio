@@ -52,15 +52,7 @@ export const metadata: Metadata = {
     title: 'Harith Iqbal - Full Stack Developer Portfolio',
     description:
       'Harith Iqbal - Full Stack Developer specializing in React, Node.js, and modern web technologies. View my portfolio and projects.',
-    siteName: 'Harith Iqbal Portfolio',
-    images: [
-      {
-        url: '/me.png',
-        width: 1200,
-        height: 630,
-        alt: 'Harith Iqbal - Full Stack Developer'
-      }
-    ]
+    siteName: 'Harith Iqbal Portfolio'
   },
   robots: {
     index: true,
