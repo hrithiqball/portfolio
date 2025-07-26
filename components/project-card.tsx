@@ -13,7 +13,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="p-4 space-y-2 bg-stone-50 dark:bg-card flex flex-col h-full">
+    <Card className="flex h-full flex-col space-y-2 p-4">
       <CardHeader className="space-y-2">
         <CardTitle className="flex items-center gap-2">
           {project.image !== '' ? (
@@ -32,8 +32,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <CardDescription>{project.description}</CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
-        {project.technologies.map(tech => (
-          <Badge variant="outline" key={tech} className="mr-2 mb-2">
+        {project.technologies.map((tech, i) => (
+          <Badge variant="outline" key={i} className="mr-2 mb-2">
             {tech}
           </Badge>
         ))}

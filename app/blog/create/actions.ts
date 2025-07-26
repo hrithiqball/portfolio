@@ -10,22 +10,41 @@ export async function createPostAction(
   _prevState: ActionState,
   formData: FormData
 ): Promise<ActionState> {
+  const activeTab = formData.get('activeTab') as string
   const file = formData.get('file') as File
+  const header = formData.get('header') as File
 
-  if (!file) {
-    return { success: false, error: 'No file provided' }
+  if (activeTab === 'upload' && !file) {
+    return { success: false, error: 'No file provided for upload' }
+  }
+
+  if (activeTab === 'create') {
+    const markdown = formData.get('markdown') as string
+    if (!markdown) {
+      return { success: false, error: 'No markdown content provided' }
+    }
   }
 
   const uploadFormData = new FormData()
-  uploadFormData.append('file', file)
+
+  if (file) {
+    uploadFormData.append('file', file)
+  }
+
+  const markdown = formData.get('markdown') as string
+  if (markdown) {
+    uploadFormData.append('markdown', markdown)
+  }
+
   uploadFormData.append('token', formData.get('token') as string)
   uploadFormData.append('title', formData.get('title') as string)
   uploadFormData.append('description', formData.get('description') as string)
   uploadFormData.append('category', formData.get('category') as string)
   uploadFormData.append('tags', formData.get('tags') as string)
+  uploadFormData.append('header', header)
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/upload-md`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/create-blog`, {
       method: 'POST',
       body: uploadFormData
     })

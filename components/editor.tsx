@@ -1,10 +1,18 @@
 'use client'
 
-import { useBlogEditStore } from '@/app/blog/[id]/edit/store'
+import { useEffect } from 'react'
+
 import { Textarea } from '@/components/ui/textarea'
+import { useBlogStore } from '@/hooks/blog-store'
 
 export function Editor() {
-  const { markdown, setMarkdown } = useBlogEditStore()
+  const { markdown, setMarkdown } = useBlogStore()
+
+  useEffect(() => {
+    return () => {
+      setMarkdown('')
+    }
+  }, [setMarkdown])
 
   return (
     <div className="h-full">

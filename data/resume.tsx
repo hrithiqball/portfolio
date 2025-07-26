@@ -11,7 +11,7 @@ export type Project = {
   dates: string
   active: boolean
   description: string
-  technologies: string[]
+  technologies: (string | ReactNode)[]
   links: { type: string; href: string; icon: ReactNode }[]
 }
 
@@ -113,13 +113,22 @@ export const DATA = {
       description:
         'An asset management system for managing company assets and handle maintenance for in house and third party vendors. Built for tracking the assets including offline checklist using excel and QR code scanning.',
       technologies: [
-        'Next.js',
-        'Typescript',
+        <>
+          <Icons.nextjs /> Next.js
+        </>,
+        <>
+          <Icons.typescript /> Typescript
+        </>,
+        ,
         'PostgreSQL',
         'Prisma',
-        'TailwindCSS',
+        <>
+          <Icons.tailwindcss /> TailwindCSS
+        </>,
         'Shadcn UI',
-        'Docker'
+        <>
+          <Icons.docker /> Docker
+        </>
       ],
       links: [
         {
@@ -145,11 +154,20 @@ export const DATA = {
         'An electric vehicle charging reservation system that allows users to reserve charging stations, view availability, and manage their reservations. Built with a focus on user experience and performance.',
       technologies: [
         'Spring Boot',
-        'Vite',
-        'React',
-        'Typescript',
+        <>
+          <Icons.vite /> Vite
+        </>,
+        <>
+          <Icons.react /> React
+        </>,
+        <>
+          <Icons.typescript /> Typescript
+        </>,
+        ,
         'PostgreSQL',
-        'TailwindCSS',
+        <>
+          <Icons.tailwindcss /> TailwindCSS
+        </>,
         'Shadcn UI',
         'Docker'
       ],
@@ -175,7 +193,17 @@ export const DATA = {
       active: true,
       description:
         'A mobile application that display daily prayer times, and allow users to track their prayers and set reminders. Extra features such as tracking prayers with a prayer buddy and analysis of prayer habits.',
-      technologies: ['Expo', 'Firebase', 'Typescript', 'Nativewind'],
+      technologies: [
+        'Expo',
+        'Firebase',
+        <>
+          <Icons.typescript /> Typescript
+        </>,
+        ,
+        <>
+          <Icons.nativewind /> NativeWind
+        </>
+      ],
       links: [
         // {
         //   type: 'Github Repository',
@@ -193,7 +221,26 @@ export const DATA = {
       active: true,
       description:
         'A booking system for managing transportation services. It allows users to book transportation services, view availability, and manage their bookings.',
-      technologies: ['Laravel', 'Vite', 'Vue', 'Typescript', 'MySQL', 'TailwindCSS', 'Shadcn UI'],
+      technologies: [
+        'Laravel',
+        <>
+          <Icons.vite /> Vite
+        </>,
+        <>
+          <Icons.vue /> Vue.js
+        </>,
+        <>
+          <Icons.typescript /> Typescript
+        </>,
+        ,
+        <>
+          <Icons.mysql /> MySQL
+        </>,
+        <>
+          <Icons.tailwindcss /> TailwindCSS
+        </>,
+        'Shadcn UI'
+      ],
       links: [
         {
           type: 'Github Repository',
@@ -213,11 +260,19 @@ export const DATA = {
         'A digital internship management system that allows users to manage internship applications, track progress, and communicate with mentors. Built with a focus on user experience and performance.',
       technologies: [
         'Spring Boot',
-        'Vite',
-        'React',
-        'Typescript',
+        <>
+          <Icons.vite /> Vite
+        </>,
+        <>
+          <Icons.react /> React
+        </>,
+        <>
+          <Icons.typescript /> Typescript
+        </>,
         'Oracle DB',
-        'TailwindCSS',
+        <>
+          <Icons.tailwindcss /> TailwindCSS
+        </>,
         'TipTap'
       ],
       links: [

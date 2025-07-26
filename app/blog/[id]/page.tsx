@@ -1,13 +1,6 @@
-import Markdown from 'react-markdown'
-import { Prism } from 'react-syntax-highlighter'
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import rehypeRaw from 'rehype-raw'
-import remarkGfm from 'remark-gfm'
-
 import { CommentSection } from '@/app/blog/[id]/comment-section'
 import { CmdbListener } from '@/components/cmdb-listener'
 import { CmdyListener } from '@/components/cmdy-listener'
-import { CopyButton } from '@/components/copy-button'
 import { CopyUrl } from '@/components/copy-url'
 import { Icons } from '@/components/icons'
 import { HyperText } from '@/components/magicui/hyper-text'
@@ -45,9 +38,10 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
           - harith iqbal
         </span>
         <Separator className="my-4" />
+        <img src={`${process.env.NEXT_PUBLIC_R2_URL}/${post.header}`} />
         <MarkdownRenderer markdown={post.markdown} />
         <div className="flex justify-between">
-          <div className="flex gap-1 items-center">
+          <div className="flex items-center gap-1">
             {tags.map(tag => (
               <Badge key={tag}>{tag}</Badge>
             ))}

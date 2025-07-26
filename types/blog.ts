@@ -6,4 +6,5 @@ type Blog = {
   category: string
   created_at: string
   markdown?: string
+  header: string
 }

@@ -1,9 +1,9 @@
-import { BodyScrollLock } from '@/app/blog/[id]/edit/body-scroll-lock'
-import { Editor } from '@/app/blog/[id]/edit/editor'
-import { EditorPreview } from '@/app/blog/[id]/edit/editor-preview'
-import { StoreInitializer } from '@/app/blog/[id]/edit/store-initializer'
+import { EditActions } from '@/app/blog/[id]/edit/edit-actions'
+import { BodyScrollLock } from '@/components/body-scroll-lock'
+import { Editor } from '@/components/editor'
+import { EditorPreview } from '@/components/editor-preview'
+import { StoreInjector } from '@/components/injector/blog-store-initializer'
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
-import { EditActions } from './edit-actions'
 
 type EditBlogPageProps = { params: Promise<{ id: string }> }
 
@@ -19,8 +19,8 @@ export default async function EditBlogPage({ params }: EditBlogPageProps) {
     <div className="w-full">
       <BodyScrollLock />
       <div className="fixed inset-0 p-6 pt-4 pb-24">
-        <StoreInitializer markdown={post?.markdown || ''} />
-        <ResizablePanelGroup direction="horizontal" className="w-full h-full rounded-lg border">
+        <StoreInjector markdown={post?.markdown || ''} />
+        <ResizablePanelGroup direction="horizontal" className="h-full w-full rounded-lg border">
           <ResizablePanel defaultSize={50}>
             <Editor />
           </ResizablePanel>

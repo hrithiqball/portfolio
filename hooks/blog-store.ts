@@ -1,11 +1,11 @@
 import { create } from 'zustand'
 
-interface BlogEditStore {
+interface BlogStore {
   markdown: string
   setMarkdown: (markdown: string) => void
 }
 
-export const useBlogEditStore = create<BlogEditStore>(set => ({
+export const useBlogStore = create<BlogStore>(set => ({
   markdown: '',
   setMarkdown: markdown => set({ markdown })
 }))
