@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import { CmdbListener } from '@/components/cmdb-listener'
 import { HyperText } from '@/components/magicui/hyper-text'
+import { Meteors } from '@/components/magicui/meteors'
 import { ParticleBackground } from '@/components/particle-background'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -27,6 +28,7 @@ export default async function BlogPage() {
   return (
     <div className="flex w-full flex-col items-center space-y-8">
       <div className="relative w-full overflow-hidden pb-12">
+        <Meteors />
         <ParticleBackground />
         <HyperText className="text-center">Blog</HyperText>
         {Object.entries(groupedByCategory).map(([category, posts]) => (
@@ -34,12 +36,13 @@ export default async function BlogPage() {
             <HyperText className="text-lg font-semibold">{category}</HyperText>
             <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {posts.map(post => (
-                <Link href={`/blog/${encodeURIComponent(post?.id)}`} key={post?.id}>
-                  <Card className="h-full cursor-pointer p-4 transition-transform duration-300 ease-in-out hover:scale-105">
+                <Link href={`/blog/${encodeURIComponent(post?.id)}`} key={post?.id} className="p-4">
+                  <Card className="relative h-full cursor-pointer p-4 transition-transform duration-300 ease-in-out hover:scale-105">
                     <CardHeader className="space-y-3">
                       <img
                         src={`${process.env.NEXT_PUBLIC_R2_URL}/${post.header}`}
                         className="h-48 w-full rounded object-cover"
+                        alt="header image"
                       />
                       <CardTitle className="flex items-center justify-between">
                         <span className="line-clamp-2">{post?.title}</span>

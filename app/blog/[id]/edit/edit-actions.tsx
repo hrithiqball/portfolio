@@ -18,7 +18,7 @@ export function EditActions() {
     <>
       <Dialog>
         <DialogTrigger asChild>
-          <RainbowButton className="absolute bottom-0 right-0 z-[100] mr-4 mb-4">
+          <RainbowButton className="absolute right-0 bottom-0 z-[100] mr-4 mb-4">
             Publish
           </RainbowButton>
         </DialogTrigger>

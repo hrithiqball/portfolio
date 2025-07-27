@@ -15,12 +15,12 @@ const BLUR_FADE_DELAY = 0.04
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
+    <main className="flex min-h-[100dvh] flex-col space-y-10">
       <div className="sr-only">
         <h1>Harith Iqbal - Full Stack Developer Portfolio</h1>
         <p>
-          Welcome to Harith Iqbal's portfolio. I am a Full Stack Developer specializing in React,
-          Node.js, TypeScript, and modern web technologies. I have experience in planning,
+          Welcome to Harith Iqbal&apos;s portfolio. I am a Full Stack Developer specializing in
+          React, Node.js, TypeScript, and modern web technologies. I have experience in planning,
           designing, developing, testing, delivering, maintaining, and enhancing web applications.
         </p>
         <p>
@@ -30,8 +30,8 @@ export default function HomePage() {
         </p>
       </div>
 
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        <div className="relative overflow-hidden w-full pb-12">
+      <div className="flex min-h-screen flex-col items-center justify-center">
+        <div className="relative w-full overflow-hidden pb-12">
           <ParticleBackground />
           <div className="space-y-8">
             <header className="relative z-10 text-center">
@@ -142,7 +142,7 @@ export default function HomePage() {
                 <BlurFade delay={BLUR_FADE_DELAY * 11}>
                   <h2 className="text-xl font-bold">Projects</h2>
                 </BlurFade>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-stretch">
+                <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2">
                   {DATA.projects.map((project, id) => (
                     <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
                       <ProjectCard project={project} />

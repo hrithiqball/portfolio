@@ -96,11 +96,11 @@ export const Terminal = ({ children, className }: TerminalProps) => {
   return (
     <div
       className={cn(
-        'z-0 h-full max-h-[400px] w-full max-w-lg rounded-xl border border-border bg-stone-50 dark:bg-card',
+        'border-border dark:bg-card z-0 h-full max-h-[400px] w-full max-w-lg rounded-xl border bg-stone-50',
         className
       )}
     >
-      <div className="flex flex-col gap-y-2 border-b border-border p-4">
+      <div className="border-border flex flex-col gap-y-2 border-b p-4">
         <div className="flex flex-row gap-x-2">
           <div className="h-2 w-2 rounded-full bg-red-500"></div>
           <div className="h-2 w-2 rounded-full bg-yellow-500"></div>

@@ -40,7 +40,7 @@ export function DeleteForm({ id }: DeleteFormProps) {
   }, [state.success])
 
   return (
-    <Card className="p-4 space-y-4">
+    <Card className="space-y-4 p-4">
       <CardHeader className="space-y-3">
         <CardTitle>Delete Confirmation</CardTitle>
         <CardDescription>
@@ -49,7 +49,7 @@ export function DeleteForm({ id }: DeleteFormProps) {
       </CardHeader>
       <form action={formAction}>
         <CardContent>
-          <Label htmlFor="token" className="block mb-2">
+          <Label htmlFor="token" className="mb-2 block">
             Delete Token
           </Label>
           <Input

@@ -2,3 +2,4 @@ onlyBuiltDependencies:
   - '@tailwindcss/oxide'
   - es5-ext
   - sharp
+  - unrs-resolver

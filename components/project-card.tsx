@@ -3,9 +3,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { Badge } from '@/components/ui/badge'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card'
 import { Project } from '@/data/resume'
-import { Badge } from './ui/badge'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
 
 type ProjectCardProps = {
   project: Project

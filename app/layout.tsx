@@ -7,7 +7,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 
-import './globals.css'
+import '@/app/globals.css'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -107,7 +107,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} min-h-screen bg-background font-sans antialiased max-w-7xl container mx-auto pt-4 pb-24 px-6`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-background container mx-auto min-h-screen max-w-7xl px-6 pt-4 pb-24 font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"
