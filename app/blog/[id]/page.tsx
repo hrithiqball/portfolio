@@ -5,6 +5,7 @@ import { CopyUrl } from '@/components/copy-url'
 import { Icons } from '@/components/icons'
 import { HyperText } from '@/components/magicui/hyper-text'
 import { MarkdownRenderer } from '@/components/markdown-renderer'
+import { OpenAISummarize } from '@/components/open-ai-summarize'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -30,13 +31,18 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
       <CmdyListener route={`/blog/${post.id}/delete`} />
       <CmdbListener route={`/blog/${post.id}/edit`} />
       <div className="prose dark:prose-invert w-full">
-        <HyperText>{post.title}</HyperText>
-        <span>
-          {new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' })
-            .format(new Date(post.created_at))
-            .toLowerCase()}
-          - harith iqbal
-        </span>
+        <div className="flex items-center justify-between">
+          <div className="flex flex-col">
+            <h1 className="prose uppercase">{post.title}</h1>
+            <span>
+              {new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' })
+                .format(new Date(post.created_at))
+                .toLowerCase()}
+              - harith iqbal
+            </span>
+          </div>
+          <OpenAISummarize />
+        </div>
         <Separator className="my-4" />
         <img src={`${process.env.NEXT_PUBLIC_R2_URL}/${post.header}`} alt="header image" />
         <MarkdownRenderer markdown={post.markdown} />

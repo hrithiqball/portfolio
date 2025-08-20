@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect } from 'react'
+import MonacoEditor from '@monaco-editor/react'
 
-import { Textarea } from '@/components/ui/textarea'
 import { useBlogStore } from '@/hooks/blog-store'
 
 export function Editor() {
@@ -15,12 +15,24 @@ export function Editor() {
   }, [setMarkdown])
 
   return (
-    <div className="h-full">
-      <Textarea
-        className="h-full"
+    <div className="border-input focus-within:ring-ring/50 focus-within:border-ring h-full overflow-hidden rounded-md border bg-transparent shadow-xs transition-[color,box-shadow] focus-within:ring-[3px]">
+      <MonacoEditor
+        height="100%"
+        language="markdown"
         value={markdown}
-        onChange={e => setMarkdown(e.target.value)}
-        placeholder="Get creative!"
+        onChange={(value: string | undefined) => setMarkdown(value || '')}
+        options={{
+          minimap: { enabled: false },
+          scrollBeyondLastLine: false,
+          wordWrap: 'on',
+          lineNumbers: 'on',
+          fontSize: 14,
+          padding: { top: 8, bottom: 8 },
+          fontFamily:
+            'ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Menlo", monospace',
+          automaticLayout: true
+        }}
+        theme="vs-dark"
       />
     </div>
   )

@@ -2,6 +2,7 @@
 @import 'tw-animate-css';
 
 @plugin "@tailwindcss/typography";
+@source "../node_modules/streamdown/dist/index.js";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -172,31 +173,6 @@
   --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.553 0.013 58.071);
-}
-
-.prose table {
-  @apply my-4 border-collapse;
-}
-
-.prose th,
-.prose td {
-  @apply border-[var(--color-prettylights-syntax-comment)] px-4 py-2 text-left;
-}
-
-.prose th {
-  @apply bg-muted font-bold;
-}
-
-.prose thead th {
-  @apply border-[var(--color-prettylights-syntax-comment)];
-}
-
-.prose pre {
-  @apply bg-stone-800;
-}
-
-.prose a {
-  @apply text-blue-500 underline-offset-4;
 }
 
 @layer base {
