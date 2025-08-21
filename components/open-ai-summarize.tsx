@@ -12,7 +12,7 @@ export function OpenAISummarize() {
 
   const fullUrl = typeof window !== 'undefined' ? `${window.location.origin}${pathname}` : pathname
 
-  const prompt = `Summarize and analyze ${fullUrl}`
+  const prompt = `Summarize and analyze ${fullUrl}. Only summarise the blog content.`
   const encodedPrompt = encodeURIComponent(prompt)
   const chatGPTUrl = `https://chatgpt.com/?prompt=${encodedPrompt}`
 
