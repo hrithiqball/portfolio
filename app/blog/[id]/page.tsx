@@ -33,8 +33,8 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
       <div className="prose dark:prose-invert w-full">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
-            <h1 className="prose uppercase">{post.title}</h1>
-            <span>
+            <h1 className="text-lg font-semibold uppercase">{post.title}</h1>
+            <span className="text-sm">
               {new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' })
                 .format(new Date(post.created_at))
                 .toLowerCase()}

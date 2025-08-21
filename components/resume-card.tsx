@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronRightIcon } from 'lucide-react'
 
@@ -16,7 +16,7 @@ interface ResumeCardProps {
   title: string
   subtitle?: string
   href?: string
-  badges?: readonly string[]
+  badges?: readonly (string | ReactNode)[]
   period: string
   description?: string
 }
@@ -54,7 +54,7 @@ export const ResumeCard = ({
               <h3 className="inline-flex items-center justify-center text-xs leading-none font-semibold sm:text-sm">
                 {title}
                 {badges && (
-                  <span className="inline-flex gap-x-1">
+                  <span className="inline-flex gap-x-1 pl-2">
                     {badges.map((badge, index) => (
                       <Badge variant="secondary" className="align-middle text-xs" key={index}>
                         {badge}

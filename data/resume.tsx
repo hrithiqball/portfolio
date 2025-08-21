@@ -1,5 +1,14 @@
 import { ReactNode } from 'react'
-import { HomeIcon, NotebookIcon, ProjectorIcon, Truck } from 'lucide-react'
+import {
+  GraduationCap,
+  HardHat,
+  HomeIcon,
+  Moon,
+  NotebookIcon,
+  ProjectorIcon,
+  Truck,
+  Zap
+} from 'lucide-react'
 
 import { Icons } from '@/components/icons'
 
@@ -50,38 +59,38 @@ export const DATA = {
     {
       company: 'Swift Haulage Berhad',
       href: 'https://swiftlogistics.com.my/',
-      badges: [],
+      badges: [<Icons.react />, <Icons.nodejs />],
       location: 'Klang, Selangor',
       title: 'Software Developer',
       logoUrl: '/swift.png',
       start: 'June 2024',
       end: 'Present',
       description:
-        'Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.'
+        'I played a key role in maintaining and evolving Swift Logistics’ internal transport and supply chain system—accessible via Swift Logistics’ portal and the ShipX-powered interface. This enterprise-grade platform supports creating transport requests, tracking prime mover locations, and managing end-to-end logistics workflows (e.g., haulage, forwarding, release-of-transport (ROT), billing)'
     },
     {
       company: 'Recogine Technology Sdn Bhd',
       href: 'https://recogine.com',
-      badges: [],
+      badges: [<Icons.dotnet />, <Icons.angular />],
       location: 'Putra Heights, Selangor',
       title: 'Software Engineer',
-      logoUrl: '/recogine.jpg',
+      logoUrl: '/recogine.png',
       start: 'January 2023',
       end: 'June 2024',
       description:
-        'Developed a real-time data processing pipeline using Apache Kafka and Apache Flink for a large scale IoT project. Implemented a microservices architecture using Docker and Kubernetes. Built a web application using React and Node.js for data visualization and analytics.'
+        'Developed RecoZense line of products to improve quality of life in transportation system mainly in highway and railway. Worked on various software solutions across Malaysia, Thailand and Phillipines. Had fun with a lot of challenges using IoT such as speed radar, RFID reader and much more, in house machine learning, video analytics, and cloud computing. Automatic Number Plate Recognition, Vehicle Detection System, Weigh-in-Motion System, Variable Message Signs just to name a few.'
     },
     {
       company: 'Recogine Technology Sdn Bhd',
       href: 'https://recogine.com',
-      badges: [],
+      badges: [<Icons.expo />],
       location: 'Putra Heights, Selangor',
       title: 'Application Development Intern',
-      logoUrl: '/recogine.jpg',
+      logoUrl: '/recogine.png',
       start: 'September 2022',
       end: 'December 2022',
       description:
-        'Developed mobile applications using Expo framework. Gained hands-on experience in mobile app development and cross-platform development practices.'
+        'Developed mobile applications using Expo framework. Gained hands-on experience in mobile app development and cross-platform development practices. First exposure of software development life cycle from planning to maintaining.'
     }
   ],
   education: [
@@ -105,8 +114,8 @@ export const DATA = {
   projects: [
     {
       title: 'E-Jobpack',
-      image: '/projects/ejobpack.ico',
-      icon: <ProjectorIcon />,
+      image: '',
+      icon: <HardHat className="text-yellow-500" />,
       href: 'https://github.com/hrithiqball/e-jobpack',
       dates: 'Mar 2023 - July 2023',
       active: true,
@@ -117,15 +126,14 @@ export const DATA = {
           <Icons.nextjs /> Next.js
         </>,
         <>
-          <Icons.typescript /> Typescript
+          <Icons.postgresql /> PostgreSQL
         </>,
-        ,
-        'PostgreSQL',
-        'Prisma',
+        <>
+          <Icons.prisma /> Prisma
+        </>,
         <>
           <Icons.tailwindcss /> TailwindCSS
         </>,
-        'Shadcn UI',
         <>
           <Icons.docker /> Docker
         </>
@@ -145,15 +153,17 @@ export const DATA = {
     },
     {
       title: 'EV Charging Reservation System',
-      image: '/projects/ev.svg',
-      icon: <ProjectorIcon />,
+      image: '',
+      icon: <Zap className="text-blue-500" />,
       href: 'https://github.com/hrithiqball/ev-reservation',
       dates: 'May 2025 - July 2025',
       active: true,
       description:
         'An electric vehicle charging reservation system that allows users to reserve charging stations, view availability, and manage their reservations. Built with a focus on user experience and performance.',
       technologies: [
-        'Spring Boot',
+        <>
+          <Icons.springboot /> Spring Boot
+        </>,
         <>
           <Icons.vite /> Vite
         </>,
@@ -161,15 +171,14 @@ export const DATA = {
           <Icons.react /> React
         </>,
         <>
-          <Icons.typescript /> Typescript
+          <Icons.postgresql /> PostgreSQL
         </>,
-        ,
-        'PostgreSQL',
         <>
           <Icons.tailwindcss /> TailwindCSS
         </>,
-        'Shadcn UI',
-        'Docker'
+        <>
+          <Icons.docker /> Docker
+        </>
       ],
       links: [
         {
@@ -186,20 +195,20 @@ export const DATA = {
     },
     {
       title: 'Mindful Muslim',
-      image: '/projects/mindful.png',
-      icon: <ProjectorIcon />,
+      image: '',
+      icon: <Moon className="text-green-800" />,
       href: 'https://github.com/hrithiqball/mindful-muslim',
       dates: 'Feb 2025 - May 2025',
       active: true,
       description:
-        'A mobile application that display daily prayer times, and allow users to track their prayers and set reminders. Extra features such as tracking prayers with a prayer buddy and analysis of prayer habits.',
+        'A cross platform mobile application that display daily prayer times, and allow users to track their prayers and set reminders. Extra features such as tracking prayers with a prayer buddy and analysis of prayer habits.',
       technologies: [
-        'Expo',
-        'Firebase',
         <>
-          <Icons.typescript /> Typescript
+          <Icons.expo /> Expo
         </>,
-        ,
+        <>
+          <Icons.firebase /> Firebase
+        </>,
         <>
           <Icons.nativewind /> NativeWind
         </>
@@ -222,7 +231,9 @@ export const DATA = {
       description:
         'A booking system for managing transportation services. It allows users to book transportation services, view availability, and manage their bookings.',
       technologies: [
-        'Laravel',
+        <>
+          <Icons.laravel /> Laravel
+        </>,
         <>
           <Icons.vite /> Vite
         </>,
@@ -230,16 +241,11 @@ export const DATA = {
           <Icons.vue /> Vue.js
         </>,
         <>
-          <Icons.typescript /> Typescript
-        </>,
-        ,
-        <>
           <Icons.mysql /> MySQL
         </>,
         <>
           <Icons.tailwindcss /> TailwindCSS
-        </>,
-        'Shadcn UI'
+        </>
       ],
       links: [
         {
@@ -251,15 +257,17 @@ export const DATA = {
     },
     {
       title: 'Interntrack System',
-      image: '/projects/intern.png',
-      icon: <Truck />,
+      image: '',
+      icon: <GraduationCap className="text-purple-500" />,
       href: 'https://github.com/hrithiqball/interntrack',
       dates: 'Oct 2024 - Jan 2025',
       active: true,
       description:
         'A digital internship management system that allows users to manage internship applications, track progress, and communicate with mentors. Built with a focus on user experience and performance.',
       technologies: [
-        'Spring Boot',
+        <>
+          <Icons.springboot /> Spring Boot
+        </>,
         <>
           <Icons.vite /> Vite
         </>,
@@ -267,13 +275,11 @@ export const DATA = {
           <Icons.react /> React
         </>,
         <>
-          <Icons.typescript /> Typescript
+          <Icons.oracle /> Oracle DB
         </>,
-        'Oracle DB',
         <>
           <Icons.tailwindcss /> TailwindCSS
-        </>,
-        'TipTap'
+        </>
       ],
       links: [
         {
