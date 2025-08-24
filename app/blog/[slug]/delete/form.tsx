@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import { useActionState, useEffect } from 'react'
 import { toast } from 'sonner'
 
-import { DeleteActionState, deletePostAction } from '@/app/blog/[id]/delete/actions'
+import { DeleteActionState, deletePostAction } from '@/app/blog/[slug]/delete/actions'
 import { Button } from '@/components/ui/button'
 import {
   Card,

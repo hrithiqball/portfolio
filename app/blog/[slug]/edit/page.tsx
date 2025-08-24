@@ -1,17 +1,15 @@
-import { EditActions } from '@/app/blog/[id]/edit/edit-actions'
+import { EditActions } from '@/app/blog/[slug]/edit/edit-actions'
 import { BodyScrollLock } from '@/components/body-scroll-lock'
 import { Editor } from '@/components/editor'
 import { EditorPreview } from '@/components/editor-preview'
 import { StoreInjector } from '@/components/injector/blog-store-initializer'
 import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable'
 
-type EditBlogPageProps = { params: Promise<{ id: string }> }
+type EditBlogPageProps = { params: Promise<{ slug: string }> }
 
 export default async function EditBlogPage({ params }: EditBlogPageProps) {
-  const { id } = await params
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/post/${encodeURIComponent(id)}`, {
-    method: 'GET'
-  })
+  const { slug } = await params
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/post/${slug}`)
   const data = await res.json()
   const post: Blog = data?.post
 

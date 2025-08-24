@@ -128,7 +128,7 @@ export default function CreateBlogPage() {
         return
       }
 
-      let formatted = currentContent
+      const formatted = currentContent
         .replace(/\n{3,}/g, '\n\n')
         .replace(/^(#{1,6})\s*/gm, '$1 ')
         .replace(/^(\s*[-*+])\s*/gm, '$1 ')
