@@ -103,7 +103,7 @@ export default function CreateBlogPage() {
     try {
       const key = await uploadImage(imageFile)
       if (key) {
-        const imageUrl = `![Image](${process.env.NEXT_PUBLIC_WORKER_URL}/img/${key})`
+        const imageUrl = `![Image](${process.env.NEXT_PUBLIC_R2_URL}/img/${key})`
         await navigator.clipboard.writeText(imageUrl)
         toast.success('Image uploaded successfully! Key copied to clipboard.')
 
