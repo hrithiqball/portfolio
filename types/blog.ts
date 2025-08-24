@@ -7,4 +7,5 @@ type Blog = {
   created_at: string
   markdown?: string
   header: string
+  slug: string
 }

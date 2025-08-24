@@ -36,7 +36,7 @@ export default async function BlogPage() {
             <HyperText className="text-lg font-semibold">{category}</HyperText>
             <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
               {posts.map(post => (
-                <Link href={`/blog/${encodeURIComponent(post?.id)}`} key={post?.id} className="p-4">
+                <Link href={`/blog/${post.slug}`} key={post?.id} className="p-4">
                   <Card className="relative h-full cursor-pointer p-4 transition-transform duration-300 ease-in-out hover:scale-105">
                     <CardHeader className="space-y-3">
                       <img

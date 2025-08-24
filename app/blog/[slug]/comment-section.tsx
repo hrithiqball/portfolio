@@ -3,7 +3,7 @@
 import Giscus from '@giscus/react'
 
 type CommentSectionProps = {
-  slug: string
+  slug: string | undefined
 }
 
 export function CommentSection({ slug }: CommentSectionProps) {
