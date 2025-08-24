@@ -19,7 +19,7 @@ export default async function DeleteBlogPageprops({ params }: DeleteBlogPageProp
           Back
         </Link>
       </Button>
-      <DeleteForm id={slug} />
+      <DeleteForm slug={slug} />
     </div>
   )
 }

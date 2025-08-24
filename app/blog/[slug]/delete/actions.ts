@@ -7,7 +7,7 @@ export type DeleteActionState = {
 }
 
 export async function deletePostAction(
-  id: string,
+  slug: string,
   _prevState: DeleteActionState,
   formData: FormData
 ): Promise<DeleteActionState> {
@@ -21,7 +21,7 @@ export async function deletePostAction(
   deleteFormData.append('token', token)
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/post/${id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/post/${slug}`, {
       method: 'DELETE',
       body: deleteFormData
     })

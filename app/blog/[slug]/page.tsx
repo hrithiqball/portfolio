@@ -138,8 +138,8 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
 
   return (
     <div className="flex justify-center">
-      <CmdyListener route={`/blog/${post.id}/delete`} />
-      <CmdbListener route={`/blog/${post.id}/edit`} />
+      <CmdyListener route={`/blog/${post.slug}/delete`} />
+      <CmdbListener route={`/blog/${post.slug}/edit`} />
       <div className="prose dark:prose-invert w-full">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">

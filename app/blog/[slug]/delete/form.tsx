@@ -18,13 +18,13 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
 type DeleteFormProps = {
-  id: string
+  slug: string
 }
 
-export function DeleteForm({ id }: DeleteFormProps) {
+export function DeleteForm({ slug }: DeleteFormProps) {
   const router = useRouter()
   const [state, formAction, isPending] = useActionState<DeleteActionState, FormData>(
-    deletePostAction.bind(null, id),
+    deletePostAction.bind(null, slug),
     {}
   )
 
