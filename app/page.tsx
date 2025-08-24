@@ -43,7 +43,7 @@ export default function HomePage() {
                 <Image
                   src="/me.png"
                   alt="Harith Iqbal"
-                  width={300}
+                  width={230}
                   height={300}
                   className="rounded-lg shadow-lg"
                   priority
