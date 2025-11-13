@@ -9,9 +9,19 @@ type EditBlogPageProps = { params: Promise<{ slug: string }> }
 
 export default async function EditBlogPage({ params }: EditBlogPageProps) {
   const { slug } = await params
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/post/${slug}`)
-  const data = await res.json()
-  const post: Blog = data?.post
+  let post: Blog | null = null
+  const base = process.env.NEXT_PUBLIC_WORKER_URL
+  if (base) {
+    try {
+      const res = await fetch(`${base}/post/${slug}`)
+      const data = await res.json()
+      post = data?.post
+    } catch (error) {
+      console.error('Error fetching post for edit page:', error)
+    }
+  } else {
+    console.warn('NEXT_PUBLIC_WORKER_URL is not set; edit page will render without post data')
+  }
 
   return (
     <div className="w-full">

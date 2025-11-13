@@ -10,9 +10,44 @@ import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/ca
 export const dynamic = 'force-dynamic'
 
 export default async function BlogPage() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/list`, { method: 'GET' })
-  const data = await res.json()
-  const blogList: Blog[] = data?.posts || []
+  let blogList: Blog[] = []
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/list`, {
+      method: 'GET',
+      // force-dynamic is set above; revalidate can be tuned here if desired
+      next: { revalidate: 60 }
+    })
+
+    if (!res.ok) {
+      // Response is not OK (404/500/etc). Log and continue with empty list.
+      console.error(`Failed to fetch posts: ${res.status} ${res.statusText}`)
+    } else {
+      const contentType = res.headers.get('content-type') ?? ''
+      if (!contentType.includes('application/json')) {
+        // Sometimes an HTML error page is returned ("<!DOCTYPE ..."). Try to capture useful info.
+        const text = await res.text()
+        try {
+          const data = JSON.parse(text)
+          blogList = data?.posts || []
+        } catch (e) {
+          // Include the error in the log to avoid unused-variable linting and aid debugging
+          console.error(
+            'Expected JSON from worker but received non-JSON response:',
+            e,
+            text.slice(0, 500)
+          )
+        }
+      } else {
+        const data = await res.json()
+        blogList = data?.posts || []
+      }
+    }
+  } catch (err) {
+    // Network or unexpected error - log and continue with empty blog list
+    // eslint-disable-next-line no-console
+    console.error('Error fetching blog list:', err)
+    blogList = []
+  }
   const groupedByCategory = blogList.reduce(
     (acc, post) => {
       const category = post.category || 'Uncategorized'

@@ -2,7 +2,7 @@
 
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
-import Streamdown from 'streamdown'
+import { Streamdown } from 'streamdown'
 
 type MarkdownRendererProps = {
   markdown: string | undefined

@@ -21,7 +21,13 @@ type BlogPostProps = {
 
 async function getPost(slug: string): Promise<Blog | null> {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/post/${slug}`, {
+    const base = process.env.NEXT_PUBLIC_WORKER_URL
+    if (!base) {
+      console.warn('NEXT_PUBLIC_WORKER_URL is not set; skipping fetch for post')
+      return null
+    }
+
+    const res = await fetch(`${base}/post/${slug}`, {
       method: 'GET'
     })
     const data = await res.json()
@@ -33,8 +39,14 @@ async function getPost(slug: string): Promise<Blog | null> {
 }
 
 export async function generateStaticParams() {
+  const base = process.env.NEXT_PUBLIC_WORKER_URL
+  if (!base) {
+    console.warn('NEXT_PUBLIC_WORKER_URL is not set; skipping generateStaticParams')
+    return []
+  }
+
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_WORKER_URL}/list`, {
+    const res = await fetch(`${base}/list`, {
       method: 'GET'
     })
     const data = await res.json()
