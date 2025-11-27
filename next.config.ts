@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
       }
     ],
     dangerouslyAllowSVG: true
+  },
+  serverActions: {
+    bodySizeLimit: '5mb'
   }
 }
 
