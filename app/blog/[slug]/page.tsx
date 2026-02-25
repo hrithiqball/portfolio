@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 
 import { CommentSection } from '@/app/blog/[slug]/comment-section'
-import { CmdbListener } from '@/components/cmdb-listener'
-import { CmdyListener } from '@/components/cmdy-listener'
+import { getAllPosts, getPostBySlug } from '@/lib/blog'
+
 import { CopyUrl } from '@/components/copy-url'
 import { Icons } from '@/components/icons'
 import { HyperText } from '@/components/magicui/hyper-text'
@@ -12,58 +12,18 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 
-// Revalidate every 24 hours (86400 seconds) or set to false for full static generation
-export const revalidate = 86400
-
 type BlogPostProps = {
   params: Promise<{ slug: string }>
 }
 
-async function getPost(slug: string): Promise<Blog | null> {
-  try {
-    const base = process.env.NEXT_PUBLIC_WORKER_URL
-    if (!base) {
-      console.warn('NEXT_PUBLIC_WORKER_URL is not set; skipping fetch for post')
-      return null
-    }
-
-    const res = await fetch(`${base}/post/${slug}`, {
-      method: 'GET'
-    })
-    const data = await res.json()
-    return data?.post || null
-  } catch (error) {
-    console.error('Error fetching post:', error)
-    return null
-  }
-}
-
-export async function generateStaticParams() {
-  const base = process.env.NEXT_PUBLIC_WORKER_URL
-  if (!base) {
-    console.warn('NEXT_PUBLIC_WORKER_URL is not set; skipping generateStaticParams')
-    return []
-  }
-
-  try {
-    const res = await fetch(`${base}/list`, {
-      method: 'GET'
-    })
-    const data = await res.json()
-    const posts: Blog[] = data?.posts || []
-
-    return posts.map(post => ({
-      slug: post.slug
-    }))
-  } catch (error) {
-    console.error('Error generating static params:', error)
-    return []
-  }
+export function generateStaticParams() {
+  const posts = getAllPosts()
+  return posts.map(post => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: BlogPostProps) {
   const { slug } = await params
-  const post = await getPost(slug)
+  const post = getPostBySlug(slug)
 
   if (!post) {
     return {
@@ -73,14 +33,12 @@ export async function generateMetadata({ params }: BlogPostProps) {
   }
 
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-  const imageUrl = `${process.env.NEXT_PUBLIC_R2_URL}/${post.header}`
   const postUrl = `${baseUrl}/blog/${post.slug}`
-  const tags = post.tags?.split(',').map(tag => tag.trim()) || []
 
   return {
     title: post.title,
     description: post.description,
-    keywords: tags.join(', '),
+    keywords: post.tags.join(', '),
     authors: [{ name: 'Harith Iqbal' }],
     creator: 'Harith Iqbal',
     publisher: 'Harith Iqbal',
@@ -90,26 +48,17 @@ export async function generateMetadata({ params }: BlogPostProps) {
       description: post.description,
       url: postUrl,
       siteName: 'Harith Iqbal Portfolio',
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: post.title
-        }
-      ],
       locale: 'en_US',
       type: 'article',
-      publishedTime: post.created_at,
+      publishedTime: post.date,
       authors: ['Harith Iqbal'],
-      tags: tags
+      tags: post.tags
     },
     twitter: {
-      card: 'summary_large_image',
+      card: 'summary',
       title: post.title,
       description: post.description,
-      creator: '@harithiqbal', // Replace with your actual Twitter handle
-      images: [imageUrl]
+      creator: '@harithiqbal'
     },
     robots: {
       index: true,
@@ -130,7 +79,7 @@ export async function generateMetadata({ params }: BlogPostProps) {
 
 export default async function BlogPostPage({ params }: BlogPostProps) {
   const { slug } = await params
-  const post = await getPost(slug)
+  const post = getPostBySlug(slug)
 
   if (!post) {
     return (
@@ -143,22 +92,19 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
     )
   }
 
-  const tags = post.tags?.split(',') || []
   const encodedText = encodeURIComponent(
     `Check out this blog post: ${post.title} ${process.env.NEXT_PUBLIC_BASE_URL}/blog/${post.slug}`
   )
 
   return (
     <div className="flex justify-center">
-      <CmdyListener route={`/blog/${post.slug}/delete`} />
-      <CmdbListener route={`/blog/${post.slug}/edit`} />
       <div className="prose dark:prose-invert w-full">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
             <HyperText>{post.title}</HyperText>
             <span className="text-sm">
               {new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' })
-                .format(new Date(post.created_at))
+                .format(new Date(post.date))
                 .toLowerCase()}
               - harith iqbal
             </span>
@@ -166,11 +112,10 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
           <OpenAISummarize />
         </div>
         <Separator className="my-4" />
-        <img src={`${process.env.NEXT_PUBLIC_R2_URL}/${post.header}`} alt="header" />
-        <MarkdownRenderer markdown={post.markdown} />
+        <MarkdownRenderer markdown={post.content} />
         <div className="flex justify-between">
           <div className="flex items-center gap-1">
-            {tags.map(tag => (
+            {post.tags.map(tag => (
               <Badge key={tag}>{tag}</Badge>
             ))}
           </div>
