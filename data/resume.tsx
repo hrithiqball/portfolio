@@ -1,14 +1,6 @@
+// oxlint-disable react/jsx-key
 import { ReactNode } from 'react'
-import {
-  GraduationCap,
-  HardHat,
-  HomeIcon,
-  Moon,
-  NotebookIcon,
-  ProjectorIcon,
-  Truck,
-  Zap
-} from 'lucide-react'
+import { GraduationCap, HardHat, HomeIcon, Moon, NotebookIcon, Truck, Zap } from 'lucide-react'
 
 import { Icons } from '@/components/icons'
 

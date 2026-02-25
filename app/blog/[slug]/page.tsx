@@ -166,7 +166,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
           <OpenAISummarize />
         </div>
         <Separator className="my-4" />
-        <img src={`${process.env.NEXT_PUBLIC_R2_URL}/${post.header}`} alt="header image" />
+        <img src={`${process.env.NEXT_PUBLIC_R2_URL}/${post.header}`} alt="header" />
         <MarkdownRenderer markdown={post.markdown} />
         <div className="flex justify-between">
           <div className="flex items-center gap-1">

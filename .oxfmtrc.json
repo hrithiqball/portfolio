@@ -1,0 +1,18 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "trailingComma": "none",
+  "singleQuote": true,
+  "tabWidth": 2,
+  "semi": false,
+  "useTabs": false,
+  "jsxSingleQuote": false,
+  "quoteProps": "as-needed",
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "endOfLine": "lf",
+  "sortTailwindcss": {},
+  "importOrder": ["^next", "^react", "<THIRD_PARTY_MODULES>", "", "^@/(.*)$", "^[./]"],
+  "sortPackageJson": false,
+  "ignorePatterns": []
+}

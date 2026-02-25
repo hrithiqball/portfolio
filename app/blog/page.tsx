@@ -77,7 +77,7 @@ export default async function BlogPage() {
                       <img
                         src={`${process.env.NEXT_PUBLIC_R2_URL}/${post.header}`}
                         className="h-48 w-full rounded object-cover"
-                        alt="header image"
+                        alt="header"
                       />
                       <CardTitle className="flex items-center justify-between">
                         <span className="line-clamp-2">{post?.title}</span>
