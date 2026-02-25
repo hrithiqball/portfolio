@@ -44,7 +44,6 @@ export default async function BlogPage() {
     }
   } catch (err) {
     // Network or unexpected error - log and continue with empty blog list
-    // eslint-disable-next-line no-console
     console.error('Error fetching blog list:', err)
     blogList = []
   }

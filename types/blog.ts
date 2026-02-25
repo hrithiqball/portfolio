@@ -1,4 +1,5 @@
-export type Blog = {
+// oxlint-disable no-unused-vars
+type Blog = {
   id: string
   title: string
   description: string
