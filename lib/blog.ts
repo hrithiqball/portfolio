@@ -23,6 +23,7 @@ export function getAllPosts(): Blog[] {
         category: data.category || 'Uncategorized',
         date: data.date,
         slug,
+        header: data.header,
         content
       } satisfies Blog
     })
@@ -48,6 +49,7 @@ export function getPostBySlug(slug: string): Blog | null {
     category: data.category || 'Uncategorized',
     date: data.date,
     slug,
+    header: data.header,
     content
   } satisfies Blog
 }

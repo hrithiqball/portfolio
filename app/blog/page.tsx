@@ -37,6 +37,13 @@ export default function BlogPage() {
                 <Link href={`/blog/${post.slug}`} key={post.slug} className="p-4">
                   <Card className="relative h-full cursor-pointer p-4 transition-transform duration-300 ease-in-out hover:scale-105">
                     <CardHeader className="space-y-3">
+                      {post.header && (
+                        <img
+                          src={post.header}
+                          className="h-48 w-full rounded object-cover"
+                          alt={post.title}
+                        />
+                      )}
                       <CardTitle className="flex items-center justify-between">
                         <span className="line-clamp-2">{post.title}</span>
                         <span className="text-muted-foreground ml-2 text-xs whitespace-nowrap">

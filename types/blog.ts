@@ -5,5 +5,6 @@ type Blog = {
   category: string
   date: string
   slug: string
+  header?: string
   content: string
 }
