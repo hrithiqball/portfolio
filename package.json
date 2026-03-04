@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "oxlint .",
-    "format": "oxfmt ."
+    "lint": "oxlint",
+    "format": "oxfmt"
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",
