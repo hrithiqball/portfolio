@@ -10,7 +10,11 @@ type MarkdownRendererProps = {
 
 export function MarkdownRenderer({ markdown }: MarkdownRendererProps) {
   return (
-    <Streamdown rehypePlugins={[rehypeRaw]} remarkPlugins={[remarkGfm]}>
+    <Streamdown
+      linkSafety={{ enabled: false }}
+      rehypePlugins={[rehypeRaw]}
+      remarkPlugins={[remarkGfm]}
+    >
       {markdown}
     </Streamdown>
   )

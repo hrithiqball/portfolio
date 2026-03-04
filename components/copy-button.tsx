@@ -39,6 +39,7 @@ export function CopyButton({
           data-slot="copy-button"
           size="icon"
           variant={variant}
+          aria-label={hasCopied ? 'Copied to clipboard' : 'Copy to clipboard'}
           className={cn(
             'bg-code absolute top-3 right-2 z-10 size-7 hover:opacity-100 focus-visible:opacity-100',
             className
@@ -49,7 +50,7 @@ export function CopyButton({
           }}
           {...props}
         >
-          <span className="sr-only">Copy</span>
+          <span className="sr-only">{hasCopied ? 'Copied to clipboard' : 'Copy to clipboard'}</span>
           {hasCopied ? <CheckIcon /> : <ClipboardIcon />}
         </Button>
       </TooltipTrigger>

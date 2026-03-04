@@ -3,14 +3,16 @@ import path from 'path'
 
 import matter from 'gray-matter'
 
+import type { Blog } from '@/types/blog'
+
 const postsDirectory = path.join(process.cwd(), 'content/blog')
 
 export function getAllPosts(): Blog[] {
   const filenames = fs.readdirSync(postsDirectory)
 
   const posts = filenames
-    .filter(name => name.endsWith('.md'))
-    .map(filename => {
+    .filter((name) => name.endsWith('.md'))
+    .map((filename) => {
       const slug = filename.replace(/\.md$/, '')
       const filePath = path.join(postsDirectory, filename)
       const fileContents = fs.readFileSync(filePath, 'utf8')

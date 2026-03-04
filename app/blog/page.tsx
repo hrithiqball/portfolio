@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import { getAllPosts } from '@/lib/blog'
+import type { Blog } from '@/types/blog'
 
 import { HyperText } from '@/components/magicui/hyper-text'
 import { Meteors } from '@/components/magicui/meteors'
@@ -24,10 +25,10 @@ export default function BlogPage() {
   )
 
   return (
-    <div className="flex w-full flex-col items-center space-y-8">
-      <div className="relative w-full overflow-hidden pb-12">
-        <Meteors />
-        <ParticleBackground />
+    <main className="relative min-h-screen w-full overflow-hidden">
+      <Meteors />
+      <ParticleBackground />
+      <div className="relative z-10 flex w-full flex-col items-center space-y-8 pb-12">
         <HyperText className="text-center">Blog</HyperText>
         {Object.entries(groupedByCategory).map(([category, posts]) => (
           <div key={category} className="w-full space-y-4">
@@ -69,6 +70,6 @@ export default function BlogPage() {
           </div>
         ))}
       </div>
-    </div>
+    </main>
   )
 }

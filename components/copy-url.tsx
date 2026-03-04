@@ -28,7 +28,13 @@ export function CopyUrl({ url }: CopyUrlProps) {
   }, [hasCopied])
 
   return (
-    <Button size="icon" variant="ghost" onClick={handleCopy}>
+    <Button
+      size="icon"
+      variant="ghost"
+      onClick={handleCopy}
+      aria-label={hasCopied ? 'URL copied' : 'Copy URL'}
+    >
+      <span className="sr-only">{hasCopied ? 'URL copied' : 'Copy URL'}</span>
       {hasCopied ? <Check className="size-3" /> : <Link className="size-3" />}
     </Button>
   )

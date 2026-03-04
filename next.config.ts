@@ -10,8 +10,10 @@ const nextConfig: NextConfig = {
     ],
     dangerouslyAllowSVG: true
   },
-  serverActions: {
-    bodySizeLimit: '10mb'
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '10mb'
+    }
   }
 }
 

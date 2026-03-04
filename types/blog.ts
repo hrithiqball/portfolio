@@ -1,4 +1,4 @@
-type Blog = {
+export type Blog = {
   title: string
   description: string
   tags: string[]

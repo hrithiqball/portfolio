@@ -9,10 +9,7 @@ import { Icons } from './icons'
 
 export function OpenAISummarize() {
   const pathname = usePathname()
-
-  const fullUrl = typeof window !== 'undefined' ? `${window.location.origin}${pathname}` : pathname
-
-  const prompt = `Summarize and analyze ${fullUrl} \nOnly summarise the blog content.`
+  const prompt = `Summarize and analyze ${pathname} \nOnly summarise the blog content.`
   const encodedPrompt = encodeURIComponent(prompt)
   const chatGPTUrl = `https://chatgpt.com/?prompt=${encodedPrompt}`
 
@@ -20,8 +17,14 @@ export function OpenAISummarize() {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button size="icon" variant="outline" asChild>
-            <Link href={chatGPTUrl} target="_blank" rel="noopener noreferrer">
+          <Button size="icon" variant="outline" asChild aria-label="Summarise this page with AI">
+            <Link
+              href={chatGPTUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Summarise this page with AI"
+            >
+              <span className="sr-only">Summarise this page with AI</span>
               <Icons.openai />
             </Link>
           </Button>

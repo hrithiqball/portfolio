@@ -1,6 +1,15 @@
-// oxlint-disable react/jsx-key
 import { ReactNode } from 'react'
-import { GraduationCap, HardHat, HomeIcon, Moon, NotebookIcon, Truck, Zap } from 'lucide-react'
+import {
+  GraduationCap,
+  HardHat,
+  HomeIcon,
+  MailIcon,
+  Moon,
+  NotebookIcon,
+  Truck,
+  UserIcon,
+  Zap
+} from 'lucide-react'
 
 import { Icons } from '@/components/icons'
 
@@ -19,6 +28,8 @@ export type Project = {
 export const DATA = {
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },
+    { href: '/about', icon: UserIcon, label: 'About' },
+    { href: '/contact', icon: MailIcon, label: 'Contact' },
     { href: '/blog', icon: NotebookIcon, label: 'Blog' }
   ],
   contact: {
@@ -51,7 +62,7 @@ export const DATA = {
     {
       company: 'Swift Haulage Berhad',
       href: 'https://swiftlogistics.com.my/',
-      badges: [<Icons.react />, <Icons.nodejs />],
+      badges: [<Icons.react key="react" />, <Icons.nodejs key="nodejs" />],
       location: 'Klang, Selangor',
       title: 'Software Developer',
       logoUrl: '/swift.png',
@@ -63,7 +74,7 @@ export const DATA = {
     {
       company: 'Recogine Technology Sdn Bhd',
       href: 'https://recogine.com',
-      badges: [<Icons.dotnet />, <Icons.angular />],
+      badges: [<Icons.dotnet key="dotnet" />, <Icons.angular key="angular" />],
       location: 'Putra Heights, Selangor',
       title: 'Software Engineer',
       logoUrl: '/recogine.png',
@@ -75,7 +86,7 @@ export const DATA = {
     {
       company: 'Recogine Technology Sdn Bhd',
       href: 'https://recogine.com',
-      badges: [<Icons.expo />],
+      badges: [<Icons.expo key="expo" />],
       location: 'Putra Heights, Selangor',
       title: 'Application Development Intern',
       logoUrl: '/recogine.png',
@@ -114,21 +125,21 @@ export const DATA = {
       description:
         'An asset management system for managing company assets and handle maintenance for in house and third party vendors. Built for tracking the assets including offline checklist using excel and QR code scanning.',
       technologies: [
-        <>
+        <span key="nextjs" className="inline-flex items-center gap-1">
           <Icons.nextjs /> Next.js
-        </>,
-        <>
+        </span>,
+        <span key="postgresql" className="inline-flex items-center gap-1">
           <Icons.postgresql /> PostgreSQL
-        </>,
-        <>
+        </span>,
+        <span key="prisma" className="inline-flex items-center gap-1">
           <Icons.prisma /> Prisma
-        </>,
-        <>
+        </span>,
+        <span key="tailwindcss" className="inline-flex items-center gap-1">
           <Icons.tailwindcss /> TailwindCSS
-        </>,
-        <>
+        </span>,
+        <span key="docker" className="inline-flex items-center gap-1">
           <Icons.docker /> Docker
-        </>
+        </span>
       ],
       links: [
         {
@@ -153,24 +164,24 @@ export const DATA = {
       description:
         'An electric vehicle charging reservation system that allows users to reserve charging stations, view availability, and manage their reservations. Built with a focus on user experience and performance.',
       technologies: [
-        <>
+        <span key="springboot" className="inline-flex items-center gap-1">
           <Icons.springboot /> Spring Boot
-        </>,
-        <>
+        </span>,
+        <span key="vite" className="inline-flex items-center gap-1">
           <Icons.vite /> Vite
-        </>,
-        <>
+        </span>,
+        <span key="react" className="inline-flex items-center gap-1">
           <Icons.react /> React
-        </>,
-        <>
+        </span>,
+        <span key="postgresql" className="inline-flex items-center gap-1">
           <Icons.postgresql /> PostgreSQL
-        </>,
-        <>
+        </span>,
+        <span key="tailwindcss" className="inline-flex items-center gap-1">
           <Icons.tailwindcss /> TailwindCSS
-        </>,
-        <>
+        </span>,
+        <span key="docker" className="inline-flex items-center gap-1">
           <Icons.docker /> Docker
-        </>
+        </span>
       ],
       links: [
         {
@@ -195,15 +206,15 @@ export const DATA = {
       description:
         'A cross platform mobile application that display daily prayer times, and allow users to track their prayers and set reminders. Extra features such as tracking prayers with a prayer buddy and analysis of prayer habits.',
       technologies: [
-        <>
+        <span key="expo" className="inline-flex items-center gap-1">
           <Icons.expo /> Expo
-        </>,
-        <>
+        </span>,
+        <span key="firebase" className="inline-flex items-center gap-1">
           <Icons.firebase /> Firebase
-        </>,
-        <>
+        </span>,
+        <span key="nativewind" className="inline-flex items-center gap-1">
           <Icons.nativewind /> NativeWind
-        </>
+        </span>
       ],
       links: [
         // {
@@ -223,21 +234,21 @@ export const DATA = {
       description:
         'A booking system for managing transportation services. It allows users to book transportation services, view availability, and manage their bookings.',
       technologies: [
-        <>
+        <span key="laravel" className="inline-flex items-center gap-1">
           <Icons.laravel /> Laravel
-        </>,
-        <>
+        </span>,
+        <span key="vite" className="inline-flex items-center gap-1">
           <Icons.vite /> Vite
-        </>,
-        <>
+        </span>,
+        <span key="vue" className="inline-flex items-center gap-1">
           <Icons.vue /> Vue.js
-        </>,
-        <>
+        </span>,
+        <span key="mysql" className="inline-flex items-center gap-1">
           <Icons.mysql /> MySQL
-        </>,
-        <>
+        </span>,
+        <span key="tailwindcss" className="inline-flex items-center gap-1">
           <Icons.tailwindcss /> TailwindCSS
-        </>
+        </span>
       ],
       links: [
         {
@@ -257,21 +268,21 @@ export const DATA = {
       description:
         'A digital internship management system that allows users to manage internship applications, track progress, and communicate with mentors. Built with a focus on user experience and performance.',
       technologies: [
-        <>
+        <span key="springboot" className="inline-flex items-center gap-1">
           <Icons.springboot /> Spring Boot
-        </>,
-        <>
+        </span>,
+        <span key="vite" className="inline-flex items-center gap-1">
           <Icons.vite /> Vite
-        </>,
-        <>
+        </span>,
+        <span key="react" className="inline-flex items-center gap-1">
           <Icons.react /> React
-        </>,
-        <>
+        </span>,
+        <span key="oracle" className="inline-flex items-center gap-1">
           <Icons.oracle /> Oracle DB
-        </>,
-        <>
+        </span>,
+        <span key="tailwindcss" className="inline-flex items-center gap-1">
           <Icons.tailwindcss /> TailwindCSS
-        </>
+        </span>
       ],
       links: [
         {

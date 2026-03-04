@@ -20,9 +20,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Harith Iqbal - Full Stack Developer | React, Node.js, TypeScript Expert',
+  title: 'Harith Iqbal | Full Stack Developer',
   description:
-    'Harith Iqbal - Full Stack Developer specializing in React, Node.js, and modern web technologies. Experienced in planning, designing, developing, testing, delivering, maintaining, and enhancing web applications. Portfolio showcasing innovative projects and technical expertise.',
+    'Harith Iqbal is a full stack developer building React, Node.js, and TypeScript apps. Explore projects, experience, and technical blog posts.',
   keywords: [
     'Harith Iqbal',
     'Full Stack Developer',
@@ -51,9 +51,9 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://hrithiqball.pixcel.org',
-    title: 'Harith Iqbal - Full Stack Developer Portfolio',
+    title: 'Harith Iqbal | Full Stack Developer Portfolio',
     description:
-      'Harith Iqbal - Full Stack Developer specializing in React, Node.js, and modern web technologies. View my portfolio and projects.',
+      'Harith Iqbal is a full stack developer building React, Node.js, and TypeScript apps.',
     siteName: 'Harith Iqbal Portfolio'
   },
   robots: {
@@ -77,7 +77,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     jobTitle: 'Full Stack Developer',
     description: 'Full Stack Developer specializing in React, Node.js, and modern web technologies',
     url: 'https://hrithiqball.pixcel.org',
-    sameAs: ['https://github.com/hrithiqball', 'https://linkedin.com/in/harithiqbal'],
+    sameAs: ['https://github.com/hrithiqball', 'https://www.linkedin.com/in/hrithiqball/'],
     knowsAbout: [
       'React',
       'Node.js',

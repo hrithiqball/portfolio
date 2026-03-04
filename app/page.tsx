@@ -15,7 +15,7 @@ const BLUR_FADE_DELAY = 0.04
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-[100dvh] flex-col space-y-10">
+    <main className="flex min-h-dvh flex-col space-y-10">
       <div className="sr-only">
         <h1>Harith Iqbal - Full Stack Developer Portfolio</h1>
         <p>
@@ -41,6 +41,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
               <div className="flex justify-center lg:order-1">
                 <Image
+                  fetchPriority="high"
                   src="/me.png"
                   alt="Harith Iqbal"
                   width={230}

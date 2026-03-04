@@ -3,6 +3,14 @@
     "browsermcp": {
       "command": "npx",
       "args": ["@browsermcp/mcp@latest"]
+    },
+    "gaca": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/gacabartosz/seo-gaca-mcp", "seo-gaca-mcp"]
+    },
+    "next-devtools": {
+      "command": "npx",
+      "args": ["-y", "next-devtools-mcp@latest"]
     }
   }
 }

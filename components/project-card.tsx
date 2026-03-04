@@ -40,7 +40,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </CardHeader>
       <CardContent className="flex-grow">
         {project.technologies.map((tech, i) => (
-          <Badge variant="outline" key={i} className="mr-2 mb-2">
+          <Badge variant="outline" key={i} className="mr-2 mb-2 [&_svg]:size-3 [&_svg]:shrink-0">
             {tech}
           </Badge>
         ))}

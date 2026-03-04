@@ -41,7 +41,7 @@ export const Icons = {
       role="img"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -54,7 +54,7 @@ export const Icons = {
       role="img"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="none"
       stroke="currentColor"
       strokeWidth="1"
@@ -73,7 +73,7 @@ export const Icons = {
       role="img"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -85,7 +85,7 @@ export const Icons = {
     <svg
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -97,7 +97,7 @@ export const Icons = {
       role="img"
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -223,7 +223,7 @@ export const Icons = {
       viewBox="0 0 410 404"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       {...props}
     >
       <title>Vite</title>
@@ -242,7 +242,7 @@ export const Icons = {
     <svg
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -251,7 +251,7 @@ export const Icons = {
     </svg>
   ),
   vue: (props: IconProps) => (
-    <svg viewBox="0 -17.5 256 256" xmlns="http://www.w3.org/2000/svg" className="size-8" {...props}>
+    <svg viewBox="0 -17.5 256 256" xmlns="http://www.w3.org/2000/svg" className="size-4" {...props}>
       <title>Vue</title>
       <path
         d="M204.8,0 L256,0 L128,220.8 L0,0 L50.56,0 L97.92,0 L128,51.2 L157.44,0 L204.8,0 Z"
@@ -276,7 +276,7 @@ export const Icons = {
       viewBox="0 0 1024 1024"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       {...props}
     >
       <title>NativeWind</title>
@@ -305,7 +305,7 @@ export const Icons = {
       viewBox="0 0 15 15"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       {...props}
     >
       <title>Node.js</title>
@@ -320,7 +320,7 @@ export const Icons = {
     <svg
       viewBox="-27 0 310 310"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -335,7 +335,7 @@ export const Icons = {
     <svg
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -347,7 +347,7 @@ export const Icons = {
     <svg
       viewBox="0 -5 34 34"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -359,7 +359,7 @@ export const Icons = {
     <svg
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -371,7 +371,7 @@ export const Icons = {
     <svg
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -383,7 +383,7 @@ export const Icons = {
     <svg
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -395,7 +395,7 @@ export const Icons = {
     <svg
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -407,7 +407,7 @@ export const Icons = {
     <svg
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -419,7 +419,7 @@ export const Icons = {
     <svg
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
@@ -432,7 +432,7 @@ export const Icons = {
     <svg
       viewBox="0 0 32 32"
       xmlns="http://www.w3.org/2000/svg"
-      className="size-8"
+      className="size-4"
       fill="currentColor"
       {...props}
     >
