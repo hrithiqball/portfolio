@@ -3,7 +3,7 @@ import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/blog'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://hrithiqball.pixcel.org'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://harith-iqbal.com'
   const posts = getAllPosts()
 
   const staticRoutes: MetadataRoute.Sitemap = [

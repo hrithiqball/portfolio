@@ -19,6 +19,8 @@ const geistMono = Geist_Mono({
   subsets: ['latin']
 })
 
+const siteUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://harith-iqbal.com'
+
 export const metadata: Metadata = {
   title: 'Harith Iqbal | Full Stack Developer',
   description:
@@ -43,14 +45,14 @@ export const metadata: Metadata = {
   authors: [{ name: 'Harith Iqbal' }],
   creator: 'Harith Iqbal',
   publisher: 'Harith Iqbal',
-  metadataBase: new URL('https://hrithiqball.pixcel.org'),
+  metadataBase: new URL(siteUrl),
   alternates: {
     canonical: '/'
   },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://hrithiqball.pixcel.org',
+    url: siteUrl,
     title: 'Harith Iqbal | Full Stack Developer Portfolio',
     description:
       'Harith Iqbal is a full stack developer building React, Node.js, and TypeScript apps.',
@@ -76,7 +78,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     name: 'Harith Iqbal',
     jobTitle: 'Full Stack Developer',
     description: 'Full Stack Developer specializing in React, Node.js, and modern web technologies',
-    url: 'https://hrithiqball.pixcel.org',
+    url: siteUrl,
     sameAs: ['https://github.com/hrithiqball', 'https://www.linkedin.com/in/hrithiqball/'],
     knowsAbout: [
       'React',

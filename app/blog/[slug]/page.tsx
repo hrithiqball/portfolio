@@ -75,8 +75,10 @@ export async function generateMetadata({ params }: BlogPostProps) {
     }
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
-  const postUrl = `${baseUrl}/blog/${post.slug}`
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://harith-iqbal.com'
+  const postUrl = new URL(`/blog/${post.slug}`, baseUrl).toString()
+  const defaultSocialImage = new URL('/opengraph-image', baseUrl).toString()
+  const socialImage = post.header ? new URL(post.header, baseUrl).toString() : defaultSocialImage
 
   return {
     title: post.title,
@@ -96,16 +98,14 @@ export async function generateMetadata({ params }: BlogPostProps) {
       publishedTime: post.date,
       authors: ['Harith Iqbal'],
       tags: post.tags,
-      ...(post.header && {
-        images: [{ url: post.header, width: 1200, height: 630, alt: post.title }]
-      })
+      images: [{ url: socialImage, width: 1200, height: 630, alt: post.title }]
     },
     twitter: {
-      card: post.header ? 'summary_large_image' : 'summary',
+      card: 'summary_large_image',
       title: post.title,
       description: post.description,
       creator: '@harithiqballll',
-      ...(post.header && { images: [post.header] })
+      images: [socialImage]
     },
     robots: {
       index: true,
