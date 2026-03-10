@@ -15,7 +15,7 @@ export function MarkdownRenderer({ markdown }: MarkdownRendererProps) {
       rehypePlugins={[rehypeRaw]}
       remarkPlugins={[remarkGfm]}
     >
-      {markdown}
+      {markdown ?? ''}
     </Streamdown>
   )
 }

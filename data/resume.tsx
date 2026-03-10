@@ -1,15 +1,5 @@
 import { ReactNode } from 'react'
-import {
-  GraduationCap,
-  HardHat,
-  HomeIcon,
-  MailIcon,
-  Moon,
-  NotebookIcon,
-  Truck,
-  UserIcon,
-  Zap
-} from 'lucide-react'
+import { GraduationCap, HardHat, HomeIcon, Moon, NotebookIcon, Truck, Zap } from 'lucide-react'
 
 import { Icons } from '@/components/icons'
 
@@ -28,8 +18,6 @@ export type Project = {
 export const DATA = {
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },
-    { href: '/about', icon: UserIcon, label: 'About' },
-    { href: '/contact', icon: MailIcon, label: 'Contact' },
     { href: '/blog', icon: NotebookIcon, label: 'Blog' }
   ],
   contact: {
@@ -69,7 +57,7 @@ export const DATA = {
       start: 'June 2024',
       end: 'Present',
       description:
-        'I played a key role in maintaining and evolving Swift Logistics’ internal transport and supply chain system—accessible via Swift Logistics’ portal and the ShipX-powered interface. This enterprise-grade platform supports creating transport requests, tracking prime mover locations, and managing end-to-end logistics workflows (e.g., haulage, forwarding, release-of-transport (ROT), billing)'
+        'I played a key role in maintaining and evolving Swift Logistics’ internal transport and supply chain system—accessible via Swift Logistics’ portal and the ShipX-powered interface. This enterprise-grade platform supports creating transport requests, tracking prime mover locations, and managing end-to-end logistics workflows (e.g., haulage, forwarding, request-of-transport (ROT), billing)'
     },
     {
       company: 'Recogine Technology Sdn Bhd',
@@ -188,12 +176,12 @@ export const DATA = {
           type: 'Github Repository',
           href: 'https://github.com/hrithiqball/ev-reservation',
           icon: <Icons.github className="size-3" />
-        },
-        {
-          type: 'Live Demo',
-          href: 'https://ev-reservation.pixcel.org/',
-          icon: <Icons.globe className="size-3" />
         }
+        // {
+        //   type: 'Live Demo',
+        //   href: 'https://ev-reservation.pixcel.org/',
+        //   icon: <Icons.globe className="size-3" />
+        // }
       ]
     },
     {

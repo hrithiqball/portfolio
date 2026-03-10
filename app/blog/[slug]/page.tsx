@@ -7,18 +7,61 @@ import { CopyUrl } from '@/components/copy-url'
 import { Icons } from '@/components/icons'
 import { HyperText } from '@/components/magicui/hyper-text'
 import { MarkdownRenderer } from '@/components/markdown-renderer'
-import { OpenAISummarize } from '@/components/open-ai-summarize'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import { TweetCard } from '@/components/ui/tweet-card'
 
 type BlogPostProps = {
   params: Promise<{ slug: string }>
 }
 
+type PostContentPart = { type: 'markdown'; content: string } | { type: 'tweet'; id: string }
+
+const TWEET_MARKDOWN_LINK_LINE_REGEX =
+  /^[ \t]*\[[^\]]+\]\(https?:\/\/(?:x\.com|twitter\.com)\/[A-Za-z0-9_]+\/status\/(\d+)(?:\?[^\)]*)?\)[ \t]*$/
+const TWEET_URL_LINE_REGEX =
+  /^[ \t]*https?:\/\/(?:x\.com|twitter\.com)\/[A-Za-z0-9_]+\/status\/(\d+)(?:\?[^\s]*)?[ \t]*$/
+
+function splitPostContent(markdown: string): PostContentPart[] {
+  const parts: PostContentPart[] = []
+  const markdownBuffer: string[] = []
+
+  const flushMarkdown = () => {
+    const content = markdownBuffer.join('\n').trim()
+    markdownBuffer.length = 0
+
+    if (content) {
+      parts.push({ type: 'markdown', content })
+    }
+  }
+
+  for (const line of markdown.split('\n')) {
+    const markdownLinkMatch = line.match(TWEET_MARKDOWN_LINK_LINE_REGEX)
+    if (markdownLinkMatch?.[1]) {
+      flushMarkdown()
+      parts.push({ type: 'tweet', id: markdownLinkMatch[1] })
+      continue
+    }
+
+    const bareUrlMatch = line.match(TWEET_URL_LINE_REGEX)
+    if (bareUrlMatch?.[1]) {
+      flushMarkdown()
+      parts.push({ type: 'tweet', id: bareUrlMatch[1] })
+      continue
+    }
+
+    markdownBuffer.push(line)
+  }
+
+  flushMarkdown()
+
+  return parts.length > 0 ? parts : [{ type: 'markdown', content: markdown }]
+}
+
 export function generateStaticParams() {
   const posts = getAllPosts()
-  return posts.map((post) => ({ slug: post.slug }))
+  return posts.map(post => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: BlogPostProps) {
@@ -87,8 +130,8 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
 
   if (!post) {
     return (
-      <div className='flex justify-center'>
-        <div className='prose dark:prose-invert w-full'>
+      <div className="flex justify-center">
+        <div className="prose dark:prose-invert w-full">
           <h1>Blog Post Not Found</h1>
           <p>The requested blog post could not be found.</p>
         </div>
@@ -99,48 +142,56 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
   const encodedText = encodeURIComponent(
     `Check out this blog post: ${post.title} ${process.env.NEXT_PUBLIC_BASE_URL}/blog/${post.slug}`
   )
+  const contentParts = splitPostContent(post.content)
 
   return (
-    <div className='flex justify-center'>
-      <div className='prose dark:prose-invert w-full'>
-        <div className='flex items-center justify-between'>
-          <div className='flex flex-col'>
+    <div className="flex justify-center">
+      <div className="prose dark:prose-invert w-full">
+        <div className="flex items-center justify-between">
+          <div className="flex flex-col">
             <HyperText>{post.title}</HyperText>
-            <span className='text-sm'>
+            <span className="text-sm">
               {new Intl.DateTimeFormat('en-US', { month: 'short', year: 'numeric' })
                 .format(new Date(post.date))
-                .toLowerCase()}
+                .toLowerCase()}{' '}
               - harith iqbal
             </span>
           </div>
-          <OpenAISummarize />
         </div>
-        <Separator className='my-4' />
+        <Separator className="my-4" />
         {post.header && <img src={post.header} alt={post.title} />}
-        <MarkdownRenderer markdown={post.content} />
-        <div className='flex justify-between'>
-          <div className='flex items-center gap-1'>
-            {post.tags.map((tag) => (
+        {contentParts.map((part, index) =>
+          part.type === 'tweet' ? (
+            <div key={`tweet-${part.id}-${index}`} className="not-prose my-6">
+              <TweetCard id={part.id} className="mx-auto w-full max-w-2xl" />
+            </div>
+          ) : (
+            <MarkdownRenderer key={`markdown-${index}`} markdown={part.content} />
+          )
+        )}
+        <div className="flex justify-between">
+          <div className="flex items-center gap-1">
+            {post.tags.map(tag => (
               <Badge key={tag}>{tag}</Badge>
             ))}
           </div>
-          <div className='flex'>
-            <Button size='icon' variant='ghost' asChild>
+          <div className="flex">
+            <Button size="icon" variant="ghost" asChild>
               <a
                 href={`https://wa.me/?text=${encodedText}`}
-                target='_blank'
-                rel='noopener noreferrer'
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Icons.whatsapp className='size-3' />
+                <Icons.whatsapp className="size-3" />
               </a>
             </Button>
-            <Button size='icon' variant='ghost'>
+            <Button size="icon" variant="ghost">
               <a
                 href={`https://x.com/intent/tweet?text=${encodedText}`}
-                target='_blank'
-                rel='noopener noreferrer'
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Icons.x className='size-3' />
+                <Icons.x className="size-3" />
               </a>
             </Button>
             <CopyUrl url={`${process.env.NEXT_PUBLIC_BASE_URL}/blog/${post.slug}`} />

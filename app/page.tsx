@@ -38,8 +38,8 @@ export default function HomePage() {
               <HyperText>Harith Iqbal</HyperText>
             </header>
 
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
-              <div className="flex justify-center lg:order-1">
+            {/* <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center"> */}
+            {/* <div className="flex justify-center lg:order-1">
                 <Image
                   fetchPriority="high"
                   src="/me.png"
@@ -49,46 +49,46 @@ export default function HomePage() {
                   className="rounded-lg shadow-lg"
                   priority
                 />
-              </div>
+              </div> */}
 
-              <section id="about" className="relative z-10 lg:order-2">
-                <Terminal className="mx-auto">
-                  <AnimatedSpan delay={1000} className="text-green-600">
-                    {'>'} harith@debian-btw:~$ whoami
-                  </AnimatedSpan>
-                  <AnimatedSpan delay={1250}>
-                    <div className="flex items-center gap-2">
-                      <Code className="size-4" />
-                      <span>Full Stack Developer</span>
-                    </div>
-                  </AnimatedSpan>
-                  <div className="pl-4">
-                    <AnimatedSpan delay={1750} className="text-blue-500">
-                      ✔ Planning
-                    </AnimatedSpan>
-                    <AnimatedSpan delay={2000} className="text-blue-500">
-                      ✔ Designing
-                    </AnimatedSpan>
-                    <AnimatedSpan delay={2250} className="text-blue-500">
-                      ✔ Developing
-                    </AnimatedSpan>
-                    <AnimatedSpan delay={2500} className="text-blue-500">
-                      ✔ Testing
-                    </AnimatedSpan>
-                    <AnimatedSpan delay={2750} className="text-blue-500">
-                      ✔ Delivering
-                    </AnimatedSpan>
-                    <AnimatedSpan delay={3000} className="text-blue-500">
-                      ✔ Maintaining
-                    </AnimatedSpan>
-                    <AnimatedSpan delay={3250} className="text-blue-500">
-                      ✔ Enhancing
-                    </AnimatedSpan>
+            <section id="about" className="relative z-10 lg:order-2">
+              <Terminal className="mx-auto">
+                <AnimatedSpan delay={1000} className="text-green-600">
+                  {'>'} harith@debian-btw:~$ whoami
+                </AnimatedSpan>
+                <AnimatedSpan delay={1250}>
+                  <div className="flex items-center gap-2">
+                    <Code className="size-4" />
+                    <span>Full Stack Developer</span>
                   </div>
-                  <AnimatedSpan delay={4000}>🔥 Blazingly Fast!</AnimatedSpan>
-                </Terminal>
-              </section>
-            </div>
+                </AnimatedSpan>
+                <div className="pl-4">
+                  <AnimatedSpan delay={1750} className="text-blue-500">
+                    ✔ Planning
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={2000} className="text-blue-500">
+                    ✔ Designing
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={2250} className="text-blue-500">
+                    ✔ Developing
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={2500} className="text-blue-500">
+                    ✔ Testing
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={2750} className="text-blue-500">
+                    ✔ Delivering
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={3000} className="text-blue-500">
+                    ✔ Maintaining
+                  </AnimatedSpan>
+                  <AnimatedSpan delay={3250} className="text-blue-500">
+                    ✔ Enhancing
+                  </AnimatedSpan>
+                </div>
+                <AnimatedSpan delay={4000}>🔥 Blazingly Fast!</AnimatedSpan>
+              </Terminal>
+            </section>
+            {/* </div> */}
 
             <section id="work">
               <div className="flex min-h-0 flex-col gap-y-3">
