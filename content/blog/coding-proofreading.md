@@ -16,6 +16,8 @@ but part of me feels something is wrong and this video by @atmoio really finally
 
 basically the what he's trying to say is that there is no hardship in building software anymore and no hardship = no attachment. all developer loves to treat their codebase as their art. trying their best to implement clean code, having rules of DRY principle, having a test driven development and so much more. it's the small things that we are customising it and not just an answer to a question. it doesn't matter anymore if claude can one shot your 6 months of planning, designing and hardworking into 2 days.
 
+yes i do agree that user don't care about the process, they only care about the result and faster result is always better for users. truly they don't care you use latest version of postgres or use serverless architecture or cutting edge microservice. but the one that we build is more than just a product. it's our pride and the proof of our passion. there's a reason why developers prefer to write code back then instead of using low code tools before AI started to be a thing.
+
 > "it's not causing your job obsolete. we are changing our paradigm from writing code to reviewing and managing agents. its like carpenter with axe vs chainsaw"
 
 yeah that sounds bullshit to me honestly. the analogy makes sense in straight angle but not at the realistic angle. we use chainsaw for cutting down big tree and use axe to chop the block into smaller block. we are not using the chainsaw to literally build a chair. and the analogy of we are reviewing the agent? yeah right. realistically no one review AI code. not at that size of changes.
