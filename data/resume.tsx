@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { GraduationCap, HardHat, HomeIcon, Moon, NotebookIcon, Truck, Zap } from 'lucide-react'
+import { Brain, GraduationCap, HardHat, HomeIcon, Moon, NotebookIcon, Truck, Zap } from 'lucide-react'
 
 import { Icons } from '@/components/icons'
 
@@ -103,6 +103,39 @@ export const DATA = {
     }
   ],
   projects: [
+    {
+      title: 'Stockfish',
+      image: '',
+      icon: <Brain className="text-indigo-500" />,
+      href: 'https://stockfish.harith-iqbal.com',
+      dates: '2026 - Present',
+      active: true,
+      description:
+        'A personal second-brain workspace for notes, whiteboards, and knowledge graphs. Combines a block-based markdown editor, Excalidraw canvases, PDF annotation, and a graph view for linking notes together, all backed by a serverless Postgres database.',
+      technologies: [
+        <span key="react" className="inline-flex items-center gap-1">
+          <Icons.react /> React
+        </span>,
+        <span key="vite" className="inline-flex items-center gap-1">
+          <Icons.vite /> Vite
+        </span>,
+        'Cloudflare Workers',
+        'Hono',
+        <span key="postgresql" className="inline-flex items-center gap-1">
+          <Icons.postgresql /> PostgreSQL
+        </span>,
+        <span key="tailwindcss" className="inline-flex items-center gap-1">
+          <Icons.tailwindcss /> TailwindCSS
+        </span>
+      ],
+      links: [
+        {
+          type: 'Live Demo',
+          href: 'https://stockfish.harith-iqbal.com',
+          icon: <Icons.globe className="size-3" />
+        }
+      ]
+    },
     {
       title: 'E-Jobpack',
       image: '',
