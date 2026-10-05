@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import React, { ReactNode, useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { ChevronRightIcon } from 'lucide-react'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'

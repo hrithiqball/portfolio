@@ -1,5 +1,14 @@
 import { ReactNode } from 'react'
-import { Brain, GraduationCap, HardHat, HomeIcon, Moon, NotebookIcon, Truck, Zap } from 'lucide-react'
+import {
+  Brain,
+  GraduationCap,
+  HardHat,
+  HomeIcon,
+  Moon,
+  NotebookIcon,
+  Truck,
+  Zap
+} from 'lucide-react'
 
 import { Icons } from '@/components/icons'
 

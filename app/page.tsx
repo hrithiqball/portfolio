@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Code } from 'lucide-react'
 
 import { DownloadResume } from '@/components/download-resume'
