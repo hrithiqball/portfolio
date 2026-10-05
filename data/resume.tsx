@@ -134,6 +134,12 @@ export const DATA = {
         <span key="cloudflareworkers" className="inline-flex items-center gap-1">
           <Icons.cloudflareworkers /> Cloudflare Workers
         </span>,
+        <span key="durableobjects" className="inline-flex items-center gap-1">
+          <Icons.cloudflareworkers /> Durable Objects
+        </span>,
+        <span key="r2" className="inline-flex items-center gap-1">
+          <Icons.r2 /> R2
+        </span>,
         <span key="hono" className="inline-flex items-center gap-1">
           <Icons.hono /> Hono
         </span>,
@@ -177,10 +183,18 @@ export const DATA = {
         <span key="cloudflareworkers" className="inline-flex items-center gap-1">
           <Icons.cloudflareworkers /> Cloudflare Workers
         </span>,
-        'Durable Objects',
-        'R2',
-        'WebAssembly',
-        'Playwright'
+        <span key="durableobjects" className="inline-flex items-center gap-1">
+          <Icons.cloudflareworkers /> Durable Objects
+        </span>,
+        <span key="r2" className="inline-flex items-center gap-1">
+          <Icons.r2 /> R2
+        </span>,
+        <span key="webassembly" className="inline-flex items-center gap-1">
+          <Icons.webassembly /> WebAssembly
+        </span>,
+        <span key="playwright" className="inline-flex items-center gap-1">
+          <Icons.playwright /> Playwright
+        </span>
       ],
       links: [
         {
