@@ -120,7 +120,7 @@ export const DATA = {
       dates: '2026 - Present',
       active: true,
       description:
-        'A block-based notes app that pairs Obsidian-style vaults with a Notion-style editor. Write in blocks with live markdown preview, sketch on Excalidraw canvases, embed Mermaid diagrams, and explore how notes link together in a graph view. Notes can be shared through live links that show who is viewing, and a companion terminal client signs in through the browser.',
+        'A block-based notes app that pairs Obsidian-style vaults with a Notion-style editor. Write in blocks with live markdown preview, sketch on Excalidraw canvases, embed Mermaid diagrams, and explore how notes link together in a graph view. Notes can be shared through live links that show who is viewing, and a companion terminal client written in Go signs in through the browser.',
       technologies: [
         <span key="typescript" className="inline-flex items-center gap-1">
           <Icons.typescript /> TypeScript
@@ -136,6 +136,9 @@ export const DATA = {
         </span>,
         <span key="hono" className="inline-flex items-center gap-1">
           <Icons.hono /> Hono
+        </span>,
+        <span key="go" className="inline-flex items-center gap-1">
+          <Icons.go /> Go
         </span>,
         <span key="postgresql" className="inline-flex items-center gap-1">
           <Icons.postgresql /> PostgreSQL
