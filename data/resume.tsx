@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import {
-  Brain,
+  FileLock,
   GraduationCap,
   HardHat,
   HomeIcon,
@@ -113,25 +113,35 @@ export const DATA = {
   ],
   projects: [
     {
-      title: 'Stockfish',
+      title: 'Tridennote',
       image: '',
-      icon: <Brain className="text-indigo-500" />,
-      href: 'https://stockfish.harith-iqbal.com',
+      icon: <Icons.tridennote />,
+      href: 'https://tridennote.pixcel.org',
       dates: '2026 - Present',
       active: true,
       description:
-        'A personal second-brain workspace for notes, whiteboards, and knowledge graphs. Combines a block-based markdown editor, Excalidraw canvases, PDF annotation, and a graph view for linking notes together, all backed by a serverless Postgres database.',
+        'A block-based notes app that pairs Obsidian-style vaults with a Notion-style editor. Write in blocks with live markdown preview, sketch on Excalidraw canvases, embed Mermaid diagrams, and explore how notes link together in a graph view. Notes can be shared through live links that show who is viewing, and a companion terminal client signs in through the browser.',
       technologies: [
+        <span key="typescript" className="inline-flex items-center gap-1">
+          <Icons.typescript /> TypeScript
+        </span>,
         <span key="react" className="inline-flex items-center gap-1">
           <Icons.react /> React
         </span>,
         <span key="vite" className="inline-flex items-center gap-1">
           <Icons.vite /> Vite
         </span>,
-        'Cloudflare Workers',
-        'Hono',
+        <span key="cloudflareworkers" className="inline-flex items-center gap-1">
+          <Icons.cloudflareworkers /> Cloudflare Workers
+        </span>,
+        <span key="hono" className="inline-flex items-center gap-1">
+          <Icons.hono /> Hono
+        </span>,
         <span key="postgresql" className="inline-flex items-center gap-1">
           <Icons.postgresql /> PostgreSQL
+        </span>,
+        <span key="neon" className="inline-flex items-center gap-1">
+          <Icons.neon /> Neon
         </span>,
         <span key="tailwindcss" className="inline-flex items-center gap-1">
           <Icons.tailwindcss /> TailwindCSS
@@ -140,8 +150,45 @@ export const DATA = {
       links: [
         {
           type: 'Live Demo',
-          href: 'https://stockfish.harith-iqbal.com',
+          href: 'https://tridennote.pixcel.org',
           icon: <Icons.globe className="size-3" />
+        }
+      ]
+    },
+    {
+      title: 'pick·pdf',
+      image: '',
+      icon: <FileLock className="text-red-500" />,
+      href: 'https://pick-pdf.pixcel.org',
+      dates: 'Oct 2026 - Present',
+      active: true,
+      description:
+        'Add or remove a PDF password right in the browser. qpdf compiled to WebAssembly runs in a Web Worker, so the file and its password never leave the device. Files can also be shared through end-to-end encrypted, burn-after-reading links that are deleted after the first download, five wrong passwords, or a chosen expiry.',
+      technologies: [
+        <span key="typescript" className="inline-flex items-center gap-1">
+          <Icons.typescript /> TypeScript
+        </span>,
+        <span key="vite" className="inline-flex items-center gap-1">
+          <Icons.vite /> Vite
+        </span>,
+        <span key="cloudflareworkers" className="inline-flex items-center gap-1">
+          <Icons.cloudflareworkers /> Cloudflare Workers
+        </span>,
+        'Durable Objects',
+        'R2',
+        'WebAssembly',
+        'Playwright'
+      ],
+      links: [
+        {
+          type: 'Live Demo',
+          href: 'https://pick-pdf.pixcel.org',
+          icon: <Icons.globe className="size-3" />
+        },
+        {
+          type: 'Github Repository',
+          href: 'https://github.com/hrithiqball/pick-pdf',
+          icon: <Icons.github className="size-3" />
         }
       ]
     },
